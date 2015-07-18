@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql');
 
 var routes = require('./routes/index');
+var Question = require('./routes/index');
 
 var app = express();
 
@@ -22,7 +23,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/** route */
 app.use('/', routes);
+app.use('/question_post', Question);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

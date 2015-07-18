@@ -3,9 +3,10 @@
 	<h1><a href="/question_post">Ask anyone?</a></h1>
 	<% Question.forEach(function(Question){ %>
 		<li style="list-style:none;">
-			Question : <%= Question.subject %>
+			Subject : <%= Question.subject %>
 			<br>
-			Answer : <%= Question.content %>
+			Content : <%= Question.content %>
+			<br><br>
 		</li>
 	<% }) %>
 </div>

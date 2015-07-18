@@ -7,7 +7,13 @@ var Answer = models.Answer;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'lowverflow' });
+	Question.findAll()
+		.then(function(Question){
+			res.render('index', {
+				title: 'lowverflow',
+				Question: Question
+			});
+		})
 });
 
 module.exports = router;

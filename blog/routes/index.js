@@ -16,7 +16,7 @@ router.get('/', function(req, res, next){
 		});
 });
 
-/** POST TO QUESTION */
+/** CREATE TO QUESTION */
 router.get('/question_post', function(req, res, next){
 	Question.findAll()
 		.then(function(Question){
@@ -27,13 +27,34 @@ router.get('/question_post', function(req, res, next){
 		});
 });
 
-router.post('/', function(req, res, next){
+router.post('/question_post', function(req, res, next){
 	Question.create({
 		subject: req.body.subject,
 		content: req.body.content
 	})
 		.then(function(Question){
 			res.redirect('/')
+		})
+})
+
+/** EDIT TO QUESTION */
+router.get('/question_edit/:id', function(req, res){
+	Question.findById(req.params.id)
+		.then(function(Question){
+			res.render('question_edit', {
+				title: 'Edit To Question',
+				Question: Question
+			})
+		})
+})
+
+router.post('/question_edit/:id', function(req, res){
+	Question.findById(req.params.id)
+		.then(function(Question){
+			Question.update(req.body)
+				.then(function(){
+					res.redirect('/')
+				})
 		})
 })
 

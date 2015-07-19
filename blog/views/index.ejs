@@ -6,6 +6,8 @@
 			Subject : <%= Question.subject %>
 			<br>
 			Content : <%= Question.content %>
+			<a href="/question_delete/<%= Question.id %>">x</a>
+			<a href="/question_edit/<%= Question.id %>">Edit</a>
 			<br><br>
 		</li>
 	<% }) %>

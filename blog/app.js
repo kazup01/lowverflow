@@ -8,6 +8,7 @@ var mysql = require('mysql');
 
 var routes = require('./routes/index');
 var Question = require('./routes/index');
+var User = require('./routes/index')
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/', routes);
 app.use('/question_post', Question);
 app.use('/question_edit/:id', Question);
 app.use('/question_delete/:id', Question);
+app.use('/register', User);
 
 
 // catch 404 and forward to error handler

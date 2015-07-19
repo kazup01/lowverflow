@@ -16,6 +16,8 @@ router.get('/', function(req, res, next){
 		});
 });
 
+/** ----------------------------- */
+
 /** CREATE TO QUESTION */
 router.get('/question_post', function(req, res, next){
 	Question.findAll()
@@ -66,6 +68,30 @@ router.get('/question_delete/:id', function(req, res){
 				.then(function(){
 					res.redirect('/')
 				})
+		})
+})
+
+/** ----------------------------- */
+
+/** REGISTER */
+router.get('/register', function(req, res){
+	User.findAll()
+		.then(function(User){
+			res.render('register', {
+				title: 'Register Form',
+				User: User
+			})
+		})
+})
+
+router.post('/register', function(req, res){
+	User.create({
+		name: req.body.name,
+		email: req.body.email,
+		password: req.body.password
+	})
+		.then(function(User){
+			res.redirect('/')
 		})
 })
 

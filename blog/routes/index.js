@@ -58,4 +58,15 @@ router.post('/question_edit/:id', function(req, res){
 		})
 })
 
+/** DELETE TO QUESTION */
+router.get('/question_delete/:id', function(req, res){
+	Question.findById(req.params.id)
+		.then(function(Question){
+			Question.destroy()
+				.then(function(){
+					res.redirect('/')
+				})
+		})
+})
+
 module.exports = router;

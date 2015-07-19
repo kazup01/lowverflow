@@ -26,6 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 /** route */
 app.use('/', routes);
 app.use('/question_post', Question);
+app.use('/question_edit/:id', Question);
+app.use('/question_delete/:id', Question);
 
 
 // catch 404 and forward to error handler

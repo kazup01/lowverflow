@@ -1,0 +1,21 @@
+.navbar {
+	color: #fff;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.footer {
+	text-align: center;
+	color: #fff;
+	padding: 10px;
+	background: #222222;
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+}

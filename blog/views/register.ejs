@@ -1,0 +1,14 @@
+<% include layouts/header %>
+<div class="container">
+	<form method="POST" action="/register">
+		<p><label>Here...</label>
+			<input type="text" name="name" placeholder="Name">
+			<input type="email" name="email" placeholder="E-mail">
+			<input type="password" name="password" placeholder="Password">
+		</p>
+		<input type="submit" value="Submit">
+	</form>
+
+	<h2><a href="/">back</a></h2>
+</div>
+<% include layouts/footer %>

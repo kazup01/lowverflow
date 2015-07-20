@@ -3,6 +3,14 @@ module.exports = function (sequelize, DataTypes) {
     answer: {
       type: DataTypes.STRING,
     }
+  },
+  {
+  	classMethods: {
+  		associate: function(models){
+  			Answer.belongsTo(models.Question)
+  			Answer.belongsTo(models.User)
+  		}
+  	}
   })
   
   return Answer

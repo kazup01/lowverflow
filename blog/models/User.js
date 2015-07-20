@@ -27,6 +27,12 @@ module.exports = function (sequelize, DataTypes) {
           this.setDataValue('password', hash);
       }
     }
+  },
+  {
+    classMethods: function(models){
+      User.hasMany(models.Question)
+      User.hasMany(models.Answer)
+    }
   })
   
   return User

@@ -11,6 +11,7 @@ var Question = require('./routes/index');
 var User = require('./routes/index');
 var Tag = require('./routes/index');
 var Category = require('./routes/index');
+var Answer = require('./routes/index');
 
 var app = express();
 

@@ -24,7 +24,7 @@ router.get('/', function(req, res, next){
 router.get('/question_post', function(req, res, next){
 	Question.findAll()
 		.then(function(Question){
-			res.render('question/question_post',{
+			res.render('question/create',{
 				title: 'Post To Question',
 				Question: Question
 			});
@@ -45,7 +45,7 @@ router.post('/question_post', function(req, res, next){
 router.get('/question_edit/:id', function(req, res){
 	Question.findById(req.params.id)
 		.then(function(Question){
-			res.render('question/question_edit', {
+			res.render('question/update', {
 				title: 'Edit To Question',
 				Question: Question
 			})
@@ -103,7 +103,7 @@ router.post('/register', function(req, res){
 router.get('/tag_post', function(req, res){
 	Tag.findAll()
 		.then(function(Tag){
-			res.render('tag/tag_post', {
+			res.render('tag/create', {
 				title: 'Post To Tag',
 				Tag: Tag
 			})
@@ -115,7 +115,7 @@ router.post('/tag_post', function(req, res){
 		tag: req.body.tag
 	})
 		.then(function(Tag){
-			res.redirect('/')
+			res.redirect('/tag_post')
 		})
 })
 
@@ -125,7 +125,7 @@ router.post('/tag_post', function(req, res){
 router.get('/category_post', function(req, res){
 	Category.findAll()
 		.then(function(Category){
-			res.render('category/category_post', {
+			res.render('category/create', {
 				title: 'Post To Category',
 				Category: Category
 			})
@@ -137,8 +137,9 @@ router.post('/category_post', function(req, res){
 		category: req.body.category
 	})
 		.then(function(Category){
-			res.redirect('/')
+			res.redirect('/category_post')
 		})
 })
+
 
 module.exports = router;

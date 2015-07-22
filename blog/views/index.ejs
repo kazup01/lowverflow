@@ -1,18 +1,25 @@
 <% include layouts/header %>
 <div class="container">
-	<h1><a href="/question_post">Ask anyone?</a></h1>
+	<h1><a href="/question/create">Ask anyone?</a></h1>
 	<h1><a href="/register">Register?</a></h1>
-	<h1><a href="/tag_post">Tag?</a></h1>
-	<h1><a href="/category_post">Category?</a></h1>
+	<h1><a href="/tag/create">Tag?</a></h1>
+	<h1><a href="/category/create">Category?</a></h1>
 	<% Question.forEach(function(Question){ %>
 		<li style="list-style:none;">
 			Subject : <%= Question.subject %>
 			<br>
 			Content : <%= Question.content %>
-			<a href="/question_delete/<%= Question.id %>">x</a>
-			<a href="/question_edit/<%= Question.id %>">Edit</a>
+			<a href="/question/delete/<%= Question.id %>" onClick="delete_confirm()">x</a>
+			<a href="/question/edit/<%= Question.id %>">Edit</a>
 			<br><br>
 		</li>
 	<% }) %>
 </div>
+
+<script language="javascript"><!--
+	function delete_confirm() {
+	    window.confirm("Delete?");
+	}
+//--></script>
+
 <% include layouts/footer %>

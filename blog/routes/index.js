@@ -10,10 +10,10 @@ var Category = models.Category;
 /** TOP */
 router.get('/', function(req, res, next){
 	Question.findAll()
-		.then(function(Question){
+		.then(function(question){
 			res.render('index',{
 				title: 'lowverflow',
-				Question: Question
+				Question: question
 			});
 		});
 });
@@ -21,41 +21,70 @@ router.get('/', function(req, res, next){
 /** ----------------------------- */
 
 /** CREATE TO QUESTION */
-router.get('/question_post', function(req, res, next){
+router.get('/question/create', function(req, res, next){
 	Question.findAll()
-		.then(function(Question){
+		.then(function (question) {
 			res.render('question/create',{
 				title: 'Post To Question',
-				Question: Question
+				Question: question
 			});
-		});
+		})
 });
 
-router.post('/question_post', function(req, res, next){
-	Question.create({
-		subject: req.body.subject,
-		content: req.body.content
-	})
-		.then(function(Question){
+router.post('/question/create', function(req, res, next){
+	Question
+		.create({
+			subject: req.body.subject,
+			content: req.body.content
+		})
+		.then(function(question){
+			return new Promise(function (resolve, reject) {
+				Category.findOne({name: req.body.categoryName})
+				.then(function (category) {
+					if (category == null) {
+						return question.createCategory({name: req.body.categoryName})
+					}
+					return question.addCategory(category)
+				})
+				.then(function () {
+					resolve(question)
+				})
+			})
+		})
+		.then(function(question){
+			return new Promise(function (resolve, reject) {
+				Tag.findOne({name: req.body.tagName})
+				.then(function (tag) {
+					if(tag == null) {
+						return question.createTag({name: req.body.tagName})
+					}
+					return question.addTag(tag)
+				})
+				.then(function () {
+					resolve(question)
+				})
+			})
+		})
+		.then(function(question){
 			res.redirect('/')
 		})
 })
 
 /** EDIT TO QUESTION */
-router.get('/question_edit/:id', function(req, res){
+router.get('/question/edit/:id', function(req, res){
 	Question.findById(req.params.id)
-		.then(function(Question){
-			res.render('question/update', {
+		.then(function(question){
+			res.render('question/edit', {
 				title: 'Edit To Question',
-				Question: Question
+				Question: question
 			})
 		})
 })
 
-router.post('/question_edit/:id', function(req, res){
+router.post('/question/edit/:id', function(req, res){
 	Question.findById(req.params.id)
-		.then(function(Question){
-			Question.update(req.body)
+		.then(function(question){
+			question.update(req.body)
 				.then(function(){
 					res.redirect('/')
 				})
@@ -63,13 +92,35 @@ router.post('/question_edit/:id', function(req, res){
 })
 
 /** DELETE TO QUESTION */
-router.get('/question_delete/:id', function(req, res){
+router.get('/question/delete/:id', function(req, res){
 	Question.findById(req.params.id)
-		.then(function(Question){
-			Question.destroy()
+		.then(function(question){
+			question.destroy()
 				.then(function(){
 					res.redirect('/')
 				})
+		})
+})
+
+/** ----------------------------- */
+
+/** ANSWER */
+router.get('/answer/create', function(req, res){
+	Answer.findAll()
+		.then(function(answer){
+			res.render('answer/create', {
+				title: 'Answer Form',
+				Answer: answer
+			})
+		})
+})
+
+router.post('/answer/create', function(req, res){
+	Answer.create({
+		answer: req.body.answer
+	})
+		.then(function(answer){
+			res.redirect('/')
 		})
 })
 
@@ -78,10 +129,10 @@ router.get('/question_delete/:id', function(req, res){
 /** REGISTER */
 router.get('/register', function(req, res){
 	User.findAll()
-		.then(function(User){
+		.then(function(user){
 			res.render('auth/register', {
 				title: 'Register Form',
-				User: User
+				User: user
 			})
 		})
 })
@@ -92,7 +143,7 @@ router.post('/register', function(req, res){
 		email: req.body.email,
 		password: req.body.password
 	})
-		.then(function(User){
+		.then(function(user){
 			res.redirect('/')
 		})
 })
@@ -100,46 +151,51 @@ router.post('/register', function(req, res){
 /** ----------------------------- */
 
 /** TAG */
-router.get('/tag_post', function(req, res){
+router.get('/tag/create', function(req, res){
 	Tag.findAll()
-		.then(function(Tag){
+		.then(function(tag){
 			res.render('tag/create', {
 				title: 'Post To Tag',
-				Tag: Tag
+				Tag: tag
 			})
 		})
 })
 
-router.post('/tag_post', function(req, res){
+router.post('/tag/create', function(req, res){
 	Tag.create({
 		tag: req.body.tag
 	})
-		.then(function(Tag){
-			res.redirect('/tag_post')
+		.then(function(tag){
+			res.redirect('/tag/create')
 		})
 })
 
 /** ----------------------------- */
 
 /** CATEGORY */
-router.get('/category_post', function(req, res){
+router.get('/category/create', function(req, res){
 	Category.findAll()
-		.then(function(Category){
+		.then(function(category){
 			res.render('category/create', {
 				title: 'Post To Category',
-				Category: Category
+				Category: category
 			})
 		})
 })
 
-router.post('/category_post', function(req, res){
+router.post('/category/create', function(req, res){
 	Category.create({
 		category: req.body.category
 	})
-		.then(function(Category){
-			res.redirect('/category_post')
+		.then(function(category){
+			res.redirect('/category/create')
 		})
 })
+
+/** ----------------------------- */
+
+/** TAGQUESTION */
+
 
 
 module.exports = router;

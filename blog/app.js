@@ -30,13 +30,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /** route */
 app.use('/', routes);
+app.use('/question/:id', Question);
+app.use('/question/:id/answer', Question);
 app.use('/question/create', Question);
 app.use('/question/edit/:id', Question);
 app.use('/question/delete/:id', Question);
 app.use('/register', User);
 app.use('/tag/create', Tag);
 app.use('/category/create', Category);
-app.use('/answer/post', Answer);
 
 
 // catch 404 and forward to error handler

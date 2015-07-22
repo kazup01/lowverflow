@@ -1,7 +1,7 @@
 <% include ../layouts/header %>
 
 <div class="container">
-	<form method="POST" action="/answer/create">
+	<form method="POST" action="/question/<%= Question.id %>/answer">
 		<p><label>Answer...</label>
 			<input type="text" name="answer">
 		</p>

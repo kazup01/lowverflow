@@ -21,6 +21,16 @@ router.get('/', function(req, res, next){
 /** ----------------------------- */
 
 /** CREATE TO QUESTION */
+router.get('/question/:id', function(req, res){
+	Question.findById(req.params.id)
+		.then(function (question){
+			res.render('question/part',{
+				title: 'All Questions',
+				Question: question
+			})
+		})
+})
+
 router.get('/question/create', function(req, res, next){
 	Question.findAll()
 		.then(function (question) {
@@ -101,6 +111,27 @@ router.get('/question/delete/:id', function(req, res){
 				})
 		})
 })
+
+router.get('/question/:id/answer', function(req, res){
+	Question.findById(req.params.id)
+		.then(function(question){
+			res.render('answer/create', {
+				title: 'Answer',
+				Question: question
+			})
+		})
+})
+
+router.post('/question/:id/answer', function (req, res) {
+	Question.findById(req.params.id)
+		.then(function(question){
+			return question.createAnswer({answer: req.body.answer})
+		})
+		.then(function () {
+			res.redirect('/')
+		})
+})
+
 
 /** ----------------------------- */
 

@@ -1,0 +1,37 @@
+<% include ../layouts/header %>
+<div class="container">
+
+	<form name="tag" method="POST" action="/tag/create">
+		<p><label>Tag...</label>
+			<input type="text" name="tag">
+		</p>
+	</form>
+
+	<form name="category" method="POST" action="/category/create">
+		<p><label>Category...</label>
+			<input type="text" name="category">
+		</p>
+	</form>
+
+	<form name="question" method="POST" action="/question/create">
+		<p><label>Question...</label>
+			<input type="text" name="subject">
+			<input type="textarea" name="content">
+		</p>
+	</form>
+
+	<input type="submit" value="submit" onClick="send()">
+
+	<h2><a href="/">back</a></h2>
+
+</div>
+
+<script language="javascript"><!--
+function send() {
+	document.question.submit();
+	document.category.submit();
+	document.tag.submit();
+}
+//--></script>
+
+<% include ../layouts/footer %>

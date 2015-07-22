@@ -1,0 +1,25 @@
+<% include ../layouts/header %>
+
+<div class="container">
+	<form method="POST" action="/category/create">
+		<p><label>Category...</label>
+			<input type="text" name="category">
+		</p>
+		<input type="submit" value="Submit">
+	</form>
+
+	<select name="category" id="category" class="select" multiple="multiple">
+		<% Category.forEach(function(Category){ %>
+			<option value=""><%= Category.category %></option>
+		<% }) %>
+	</select>
+
+	<h2><a href="/">back</a></h2>
+
+</div>
+
+<script>
+	$(".select").select2();
+</script>
+
+<% include ../layouts/footer %>

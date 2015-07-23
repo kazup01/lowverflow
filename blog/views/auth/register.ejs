@@ -1,12 +1,28 @@
 <% include ../layouts/header %>
-<div role="form" data-toggle="validator" class="container">
+<div class="container">
 	<form method="POST" action="/register">
-		<p><label>Here...</label>
-			<input type="text" name="name" placeholder="Name">
-			<input type="email" name="email" placeholder="E-mail">
-			<input type="password" name="password" placeholder="Password">
-		</p>
-		<input type="submit" value="Submit">
+		<div class="form-group">
+			<label>name</label>
+			<input type="text" name="name" placeholder="Cina Saffary" class="form-control" required>
+		</div>
+
+		<div class="form-group">
+			<label>email</label>
+			<input type="email" name="email" placeholder="Email" data-error="Email address is invalid" class="form-control" required>
+			<div class="help-block with-errors"></div>
+		</div>
+
+		<div class="form-group">
+		    <label>password</label>
+		    <div class="form-group">
+		      <input type="password" name="password" id="inputPassword" data-minlength="6" placeholder="Password" class="form-control" required>
+		      <span class="help-block">minimum of 6 characters</span>
+		    </div>
+		</div>
+
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary">submit</button>
+		</div>
 	</form>
 
 	<h2><a href="/">back</a></h2>

@@ -12,7 +12,7 @@ router.get('/', function(req, res, next){
 	Question.findAll()
 		.then(function(question){
 			res.render('index',{
-				title: 'lowverflow',
+				title: 'lawverflow',
 				Question: question
 			});
 		});
@@ -21,16 +21,6 @@ router.get('/', function(req, res, next){
 /** ----------------------------- */
 
 /** CREATE TO QUESTION */
-router.get('/question/:id', function(req, res){
-	Question.findById(req.params.id)
-		.then(function (question){
-			res.render('question/part',{
-				title: 'All Questions',
-				Question: question
-			})
-		})
-})
-
 router.get('/question/create', function(req, res, next){
 	Question.findAll()
 		.then(function (question) {
@@ -39,7 +29,7 @@ router.get('/question/create', function(req, res, next){
 				Question: question
 			});
 		})
-});
+})
 
 router.post('/question/create', function(req, res, next){
 	Question
@@ -80,6 +70,22 @@ router.post('/question/create', function(req, res, next){
 		})
 })
 
+/** SHOW PARTS */
+router.get('/question/:id', function(req, res){
+	Question
+		.findById(req.params.id, {
+			include: [
+				{ model: Answer }
+			]
+		})
+		.then(function (question){
+			res.render('question/part',{
+				title: 'Question',
+				Question: question
+			})
+		})
+})
+
 /** EDIT TO QUESTION */
 router.get('/question/edit/:id', function(req, res){
 	Question.findById(req.params.id)
@@ -112,6 +118,9 @@ router.get('/question/delete/:id', function(req, res){
 		})
 })
 
+/** ----------------------------- */
+
+/** ANSWER */
 router.get('/question/:id/answer', function(req, res){
 	Question.findById(req.params.id)
 		.then(function(question){
@@ -128,32 +137,10 @@ router.post('/question/:id/answer', function (req, res) {
 			return question.createAnswer({answer: req.body.answer})
 		})
 		.then(function () {
-			res.redirect('/')
+			res.redirect('/question/create')
 		})
 })
 
-
-/** ----------------------------- */
-
-/** ANSWER */
-router.get('/answer/create', function(req, res){
-	Answer.findAll()
-		.then(function(answer){
-			res.render('answer/create', {
-				title: 'Answer Form',
-				Answer: answer
-			})
-		})
-})
-
-router.post('/answer/create', function(req, res){
-	Answer.create({
-		answer: req.body.answer
-	})
-		.then(function(answer){
-			res.redirect('/')
-		})
-})
 
 /** ----------------------------- */
 
@@ -200,6 +187,7 @@ router.post('/tag/create', function(req, res){
 			res.redirect('/tag/create')
 		})
 })
+
 
 /** ----------------------------- */
 

@@ -4,22 +4,38 @@
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 a {
-  color: #00B7FF;
+	color: #000;
 }
 
-.footer {
-	text-align: center;
-	color: #fff;
-	padding: 10px;
-	background: #222222;
-	position: absolute;
-	width: 100%;
-	bottom: 0px;
+footer {
+    background: #272727 none repeat scroll 0% 0%;
+    color: #939393;
+	padding-top: 67px;
+	padding-bottom: 67px;
 }
 
 .select {
 	background-color: #fff;
+}
+
+ul, ol {
+    padding-left: 0px !important;
+}
+
+ol, ul {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.social li {
+    display: inline-block;
+    margin: 5px;
+}
+li {
+    list-style: outside none none;
 }

@@ -162,9 +162,23 @@ router.post('/register', function(req, res){
 		password: req.body.password
 	})
 		.then(function(user){
-			res.redirect('/')
+			res.redirect('/user')
 		})
 })
+
+/** ----------------------------- */
+
+/** USER */
+router.get('/user', function(req, res){
+	User.findAll()
+		.then(function(user){
+			res.render('user/all', {
+				title: 'All Users',
+				User: user
+			})
+		})
+})
+
 
 /** ----------------------------- */
 

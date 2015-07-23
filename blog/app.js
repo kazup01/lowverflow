@@ -38,6 +38,7 @@ app.use('/question/delete/:id', Question);
 app.use('/register', User);
 app.use('/tag/create', Tag);
 app.use('/category/create', Category);
+app.use('/user', User);
 
 
 // catch 404 and forward to error handler

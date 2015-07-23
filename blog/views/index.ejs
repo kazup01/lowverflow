@@ -1,5 +1,5 @@
 <% include layouts/header %>
-<div class="jumbotron">
+<div class="jumbotron features">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3">
@@ -19,17 +19,15 @@
 </div>
 
 
-<div class="container-fluid">
-      <div class="row">
+<div class="container-fluid strip">
+      <div class="row row-contents">
       	<div class="col-sm-1 sidebar">
       		padding
         </div>
 
         <div class="col-sm-8">
-			<h1><a href="/question/create">Ask anyone?</a></h1>
-			<h1><a href="/register">Register?</a></h1>
-			<h1><a href="/tag/create">Tag?</a></h1>
-			<h1><a href="/category/create">Category?</a></h1>
+			<h4><strong>Today's Questions</strong></h4>
+			<hr>
 			<% Question.forEach(function(Question){ %>
 				<li style="list-style:none;">
 					Subject : <%= Question.subject %>
@@ -37,12 +35,28 @@
 					Content : <a href="/question/<%= Question.id %>"><%= Question.content %></a>
 					<a href="/question/delete/<%= Question.id %>" onClick="delete_confirm()">x</a>
 					<a href="/question/edit/<%= Question.id %>">Edit</a>
-					<br><br>
+					<hr>
 				</li>
 			<% }) %>
         </div>
         <div class="col-sm-2">
-        	SideBar Here
+        	<div class="red">
+        		 Sidebar<Br>
+	     		 Sidebar<Br>
+        		 Sidebar<Br> 
+        		 Sidebar<Br>
+	     		 Sidebar<Br>
+        		 Sidebar<Br> 
+        		 Sidebar<Br>
+	     		 Sidebar<Br>
+        		 Sidebar<Br> 
+        		 Sidebar<Br>
+	     		 Sidebar<Br>
+        		 Sidebar<Br> 
+        		 Sidebar<Br>
+	     		 Sidebar<Br>
+        		 Sidebar<Br> 
+        	</div>
         </div>
 
         <div class="col-sm-1">

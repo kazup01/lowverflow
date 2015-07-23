@@ -8,8 +8,31 @@ body {
   padding-bottom: 20px;
 }
 
+.row-contents {
+	padding-top: 20px;
+}
+
 a {
 	color: #000;
+}
+
+.features {
+	background-color: #F6F8F9;
+	margin-bottom: 0px;
+}
+
+.strip {
+	border-top: 1px solid #DCE2E5;
+	border-bottom: 1px solid #DCE2E5;
+}
+
+.red {
+	border-style: solid;
+	border-width: 8px;
+	padding: 10px 5px 10px 20px;
+	border-color: #07C;
+background-position: center 3px;
+background-color: #fff;
 }
 
 footer {

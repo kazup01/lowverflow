@@ -1,5 +1,5 @@
 <% include ../layouts/header %>
-<div class="container">
+<div role="form" data-toggle="validator" class="container">
 	<form method="POST" action="/register">
 		<p><label>Here...</label>
 			<input type="text" name="name" placeholder="Name">
@@ -11,4 +11,9 @@
 
 	<h2><a href="/">back</a></h2>
 </div>
+
+<script>
+	$('#myForm').validator()	
+</script>
+
 <% include ../layouts/footer %>

@@ -2,17 +2,14 @@
 <div class="jumbotron features">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3">
-				Level 1: col-md-6
+			<div class="col-md-4">
+				① Lawverflow is Q&A platform for searching law information.
 			</div>
-			<div class="col-md-3">
-				Level 1: col-md-6
+			<div class="col-md-4">
+				② This is law search engine.
 			</div>
-			<div class="col-md-3">
-				Level 1: col-md-6
-			</div>
-			<div class="col-md-3">
-				Level 1: col-md-6
+			<div class="col-md-4">
+				③ Lawverflow is like a stackoverflow(It is programming Q and A site.)
 			</div>
 		</div>
 	</div>
@@ -40,12 +37,14 @@
 			<% }) %>
         </div>
         <div class="col-sm-2">
-        	<div class="left-sidebar">
-        	<strong>SideBar Here</strong><br><br>
-				<% Question.forEach(function(Question){ %>
-					<option value=""><%= Question.subject %></option>
-				<% }) %>
-        	</div>
+	        <div class="sidebar-title">
+	        <center><p class="sidebar-text">sidebar here</p></center>
+	        	<div class="sidebar-right">
+					<% Question.forEach(function(Question){ %>
+						<option value=""><%= Question.subject %></option>
+					<% }) %>
+	        	</div>
+	        </div>
         </div>
 
         <div class="col-sm-1">

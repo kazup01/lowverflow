@@ -1,44 +1,68 @@
+/** NAV */
 .navbar {
 	color: #fff;
 }
+/** ------------- */
 
+
+/** BODY */
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   padding-top: 20px;
 }
+/** ------------- */
 
+
+/** CONTENT */
 .row-contents {
 	padding-top: 20px;
 }
+/** ------------- */
 
+
+/** BASE FONT */
 a {
 	color: #000;
 }
+/** ------------- */
 
+
+/** FEATURES */
 .features {
 	background-color: #F6F8F9;
 	margin-bottom: 0px;
 }
+/** ------------- */
+
 
 .strip {
 	border-top: 1px solid #DCE2E5;
 	border-bottom: 1px solid #DCE2E5;
 }
 
-.left-sidebar {
-	border-style: solid;
-	border-width: 8px;
+
+/** SIDEBAR */
+.sidebar-title {
+/*	border-top: 40px solid #0077CC;*/
+	padding-top: 20px;
+	border-bottom: 8px solid #0077CC;
+	border-left: 8px solid #0077CC;
+	border-right: 8px solid #0077CC;
+	background-color: #0077CC;
+}
+
+.sidebar-text {
+	color: #fff;
+}
+
+.sidebar-right {
 	padding: 10px 5px 10px 20px;
-	border-color: #07C;
+	background-color: #fff;
 }
+/** ------------- */
 
-footer {
-    background: #272727 none repeat scroll 0% 0%;
-    color: #939393;
-	padding-top: 67px;
-	padding-bottom: 67px;
-}
 
+/** SELECTOR */
 .select {
 	background-color: #fff;
 }
@@ -58,4 +82,14 @@ ol, ul {
 }
 li {
     list-style: outside none none;
+}
+/** ------------- */
+
+
+/** FOOTER */
+footer {
+    background: #272727 none repeat scroll 0% 0%;
+    color: #939393;
+	padding-top: 67px;
+	padding-bottom: 67px;
 }

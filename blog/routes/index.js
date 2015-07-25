@@ -10,13 +10,16 @@ var Category = models.Category;
 /** TOP */
 router.get('/', function(req, res, next){
 	Question.findAll()
-		.then(function(question){
+		.then(function(question, tag){
 			res.render('index',{
 				title: 'lawverflow',
-				Question: question
+				Question: question,
+				Tag: tag
 			});
-		});
+		})
 });
+
+
 
 /** ----------------------------- */
 
@@ -172,7 +175,7 @@ router.post('/register', function(req, res){
 router.get('/user', function(req, res){
 	User.findAll()
 		.then(function(user){
-			res.render('user/all', {
+			res.render('user/index', {
 				title: 'All Users',
 				User: user
 			})
@@ -183,47 +186,67 @@ router.get('/user', function(req, res){
 /** ----------------------------- */
 
 /** TAG */
+router.get('/tag/index', function(req, res){
+	Tag.findAll()
+		.then(function(tag){
+			res.render('tag/index', {
+				title: 'All Tags',
+				Tag: tag
+			})
+		});
+});
+
 router.get('/tag/create', function(req, res){
 	Tag.findAll()
 		.then(function(tag){
 			res.render('tag/create', {
 				title: 'Post To Tag',
 				Tag: tag
-			})
-		})
-})
+			});
+		});
+});
 
 router.post('/tag/create', function(req, res){
 	Tag.create({
 		tag: req.body.tag
 	})
 		.then(function(tag){
-			res.redirect('/tag/create')
-		})
-})
+			res.redirect('/tag/create');
+		});
+});
 
 
 /** ----------------------------- */
 
 /** CATEGORY */
+router.get('/category/index', function(req, res){
+	Category.findAll()
+		.then(function(category){
+			res.render('category/index', {
+				title: 'All Categories',
+				Category: category
+			});
+		});
+});
+
 router.get('/category/create', function(req, res){
 	Category.findAll()
 		.then(function(category){
 			res.render('category/create', {
 				title: 'Post To Category',
 				Category: category
-			})
-		})
-})
+			});
+		});
+});
 
 router.post('/category/create', function(req, res){
 	Category.create({
 		category: req.body.category
 	})
 		.then(function(category){
-			res.redirect('/category/create')
-		})
-})
+			res.redirect('/category/create');
+		});
+});
 
 /** ----------------------------- */
 

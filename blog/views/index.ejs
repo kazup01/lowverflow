@@ -32,7 +32,7 @@
 				<li style="list-style:none;">
 					Subject : <%= Question.subject %>
 					<br>
-					Content : <a href="/question/<%= Question.id %>"><%= Question.content %></a>
+					Content : <strong><a href="/question/<%= Question.id %>"><%= Question.content %></a></strong>
 					<a href="/question/delete/<%= Question.id %>" onClick="delete_confirm()">x</a>
 					<a href="/question/edit/<%= Question.id %>">Edit</a>
 					<hr>
@@ -40,22 +40,11 @@
 			<% }) %>
         </div>
         <div class="col-sm-2">
-        	<div class="red">
-        		 Sidebar<Br>
-	     		 Sidebar<Br>
-        		 Sidebar<Br> 
-        		 Sidebar<Br>
-	     		 Sidebar<Br>
-        		 Sidebar<Br> 
-        		 Sidebar<Br>
-	     		 Sidebar<Br>
-        		 Sidebar<Br> 
-        		 Sidebar<Br>
-	     		 Sidebar<Br>
-        		 Sidebar<Br> 
-        		 Sidebar<Br>
-	     		 Sidebar<Br>
-        		 Sidebar<Br> 
+        	<div class="left-sidebar">
+        	<strong>SideBar Here</strong><br><br>
+				<% Question.forEach(function(Question){ %>
+					<option value=""><%= Question.subject %></option>
+				<% }) %>
         	</div>
         </div>
 

@@ -82,7 +82,7 @@ router.get('/question/:id', function(req, res){
 			]
 		})
 		.then(function (question){
-			res.render('question/part',{
+			res.render('question/show',{
 				title: 'Question',
 				Question: question
 			})
@@ -196,6 +196,16 @@ router.get('/tag/index', function(req, res){
 		});
 });
 
+router.get('/tag/:id', function(req, res){
+	Tag.findById(req.params.id)
+		.then(function(tag){
+			res.render('tag/show', {
+				title: 'Tag show',
+				Tag: tag
+			});
+		});
+});
+
 router.get('/tag/create', function(req, res){
 	Tag.findAll()
 		.then(function(tag){
@@ -224,6 +234,16 @@ router.get('/category/index', function(req, res){
 		.then(function(category){
 			res.render('category/index', {
 				title: 'All Categories',
+				Category: category
+			});
+		});
+});
+
+router.get('/category/:id', function(req, res){
+	Category.findById(req.params.id)
+		.then(function(category){
+			res.render('category/show', {
+				title: 'Category show',
 				Category: category
 			});
 		});

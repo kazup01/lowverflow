@@ -2,9 +2,9 @@
 
 <div class="container">
 		<% Tag.forEach(function(Tag){ %>
-			<option value=""><%= Tag.tag %></option>
+			<a href="/tag/<%= Tag.id %>"><option value=""><%= Tag.tag %></option></a>
+			<hr>
 		<% }) %>
-
 		<strong><a href="/tag/create">Create To Tag</a></strong>
 	
 	<h2><a href="/">back</a></h2>

@@ -37,8 +37,10 @@ app.use('/question/edit/:id', Question);
 app.use('/question/delete/:id', Question);
 app.use('/register', User);
 app.use('/tag/index', Tag);
+app.use('/tag/:id', Tag);
 app.use('/tag/create', Tag);
 app.use('/category/index', Category);
+app.use('/category/:id', Category);
 app.use('/category/create', Category);
 app.use('/user', User);
 

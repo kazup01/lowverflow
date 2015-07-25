@@ -17,40 +17,40 @@
 
 
 <div class="container-fluid strip">
-      <div class="row row-contents">
-      	<div class="col-sm-1 sidebar">
-      		padding
-        </div>
+  <div class="row row-contents">
+  	<div class="col-sm-1 sidebar">
+  		padding
+    </div>
 
-        <div class="col-sm-8">
-			<h4><strong>Today's Questions</strong></h4>
-			<hr>
-			<% Question.forEach(function(Question){ %>
-				<li style="list-style:none;">
-					Subject : <%= Question.subject %>
-					<br>
-					Content : <strong><a href="/question/<%= Question.id %>"><%= Question.content %></a></strong>
-					<a href="/question/delete/<%= Question.id %>" onClick="delete_confirm()">x</a>
-					<a href="/question/edit/<%= Question.id %>">Edit</a>
-					<hr>
-				</li>
-			<% }) %>
+    <div class="col-sm-8">
+		<h4><strong>Today's Questions</strong></h4>
+		<hr>
+		<% Question.forEach(function(Question){ %>
+			<li style="list-style:none;">
+				Subject : <%= Question.subject %>
+				<br>
+				Content : <strong><a href="/question/<%= Question.id %>"><%= Question.content %></a></strong>
+				<a href="/question/delete/<%= Question.id %>" onClick="delete_confirm()">x</a>
+				<a href="/question/edit/<%= Question.id %>">Edit</a>
+				<hr>
+			</li>
+		<% }) %>
+    </div>
+    <div class="col-sm-2">
+        <div class="sidebar-title">
+        <center><p class="sidebar-text">sidebar here</p></center>
+        	<div class="sidebar-right">
+				<% Question.forEach(function(Question){ %>
+					<option value=""><%= Question.subject %></option>
+				<% }) %>
+        	</div>
         </div>
-        <div class="col-sm-2">
-	        <div class="sidebar-title">
-	        <center><p class="sidebar-text">sidebar here</p></center>
-	        	<div class="sidebar-right">
-					<% Question.forEach(function(Question){ %>
-						<option value=""><%= Question.subject %></option>
-					<% }) %>
-	        	</div>
-	        </div>
-        </div>
+    </div>
 
-        <div class="col-sm-1">
-        	padding
-        </div>
-      </div>
+    <div class="col-sm-1">
+    	padding
+    </div>
+  </div>
 </div>
 
 

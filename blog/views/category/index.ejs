@@ -2,9 +2,9 @@
 
 <div class="container">
 		<% Category.forEach(function(Category){ %>
-			<option value=""><%= Category.category %></option>
+			<a href="/category/<%= Category.id %>"><option value=""><%= Category.category %></option><a>
+			<hr>
 		<% }) %>
-
 		<strong><a href="/category/create">Create To Category</a></strong>
 	
 	<h2><a href="/">back</a></h2>

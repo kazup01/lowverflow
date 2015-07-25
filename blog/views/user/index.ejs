@@ -1,0 +1,11 @@
+<% include ../layouts/header %>
+
+<div class="container">
+		<% User.forEach(function(user){ %>
+			<p><%= user.name %> : <%= user.email %></p>
+		<% }) %>
+	<h2><a href="/">back</a></h2>
+
+</div>
+
+<% include ../layouts/footer %>

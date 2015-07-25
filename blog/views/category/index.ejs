@@ -1,0 +1,14 @@
+<% include ../layouts/header %>
+
+<div class="container">
+		<% Category.forEach(function(Category){ %>
+			<option value=""><%= Category.category %></option>
+		<% }) %>
+
+		<strong><a href="/category/create">Create To Category</a></strong>
+	
+	<h2><a href="/">back</a></h2>
+
+</div>
+
+<% include ../layouts/footer %>

@@ -1,0 +1,20 @@
+<% include ../layouts/header %>
+
+<div class="container">
+	<p><%= Question.id %>'s Question...</p>
+	<%= Question.subject %>
+	<%= Question.content %>
+	<br>
+	<br>
+	<a href="/question/<%= Question.id %>/answer">Comment☆</a>
+	<br>
+	<br>
+	<%= Question.Answers.map(function (answer) {
+		return answer.answer
+		}).join(' / ') %>
+
+
+
+</div>
+
+<% include ../layouts/footer %>

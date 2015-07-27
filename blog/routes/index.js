@@ -172,7 +172,7 @@ router.post('/register', function(req, res){
 /** ----------------------------- */
 
 /** USER */
-router.get('/user', function(req, res){
+router.get('/users', function(req, res){
 	User.findAll()
 		.then(function(user){
 			res.render('user/index', {
@@ -270,7 +270,6 @@ router.post('/category/create', function(req, res){
 
 /** ----------------------------- */
 
-/** TAGQUESTION */
 
 
 

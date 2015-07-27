@@ -28,6 +28,7 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 /** route */
 app.use('/', routes);
 app.use('/question/:id', Question);
@@ -42,7 +43,12 @@ app.use('/tag/create', Tag);
 app.use('/category/index', Category);
 app.use('/category/:id', Category);
 app.use('/category/create', Category);
-app.use('/user', User);
+app.use('/users', User);
+
+/** html */
+app.get('/test', function(req, res){
+    res.sendFile(path.join(__dirname + '/views/test.html'));
+});
 
 
 // catch 404 and forward to error handler

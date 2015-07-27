@@ -9,11 +9,10 @@
 	<a href="/question/<%= Question.id %>/answer">Comment☆</a>
 	<br>
 	<br>
+	
 	<%= Question.Answers.map(function (answer) {
 		return answer.answer
 		}).join(' / ') %>
-
-
 
 </div>
 

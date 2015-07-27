@@ -2,10 +2,9 @@
 
 <div class="container">
 		<% User.forEach(function(user){ %>
-			<p><%= user.name %> : <%= user.email %></p>
+			<p><img src="http://www.gravatar.com/avatar/<%= user.email %>?s=30">　<%= user.name %> : <%= user.email %></p>
 		<% }) %>
 	<h2><a href="/">back</a></h2>
-
 </div>
 
 <% include ../layouts/footer %>

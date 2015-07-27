@@ -1,9 +1,9 @@
 <% include ../layouts/header %>
 <div class="container">
 	<form method="POST" action="/question/edit/<%= Question.id %>">
-		<p><label>Here...</label>
-			<input type="text" name="subject" placeholder="<%= Question.subject %>">
-			<input type="textarea" name="content" placeholder="<%= Question.content %>">
+		<p><label>Here...</label><br>
+			Subject : <input type="text" name="subject" value="<%= Question.subject %>"><br>
+			Content : <input type="textarea" name="content" value="<%= Question.content %>">
 		</p>
 		<input type="submit" value="Submit">
 	</form>

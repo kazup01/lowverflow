@@ -11,11 +11,10 @@ var gravatar = require('gravatar');
 /** TOP */
 router.get('/', function(req, res, next){
 	Question.findAll()
-		.then(function(question, tag){
+		.then(function(question){
 			res.render('index',{
 				title: 'lawverflow',
-				Question: question,
-				Tag: tag
+				Question: question
 			});
 		});
 });

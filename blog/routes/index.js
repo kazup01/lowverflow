@@ -6,6 +6,7 @@ var Question = models.Question;
 var Answer = models.Answer;
 var Tag = models.Tag;
 var Category = models.Category;
+var gravatar = require('gravatar');
 
 /** TOP */
 router.get('/', function(req, res, next){
@@ -16,7 +17,7 @@ router.get('/', function(req, res, next){
 				Question: question,
 				Tag: tag
 			});
-		})
+		});
 });
 
 
@@ -31,8 +32,8 @@ router.get('/question/create', function(req, res, next){
 				title: 'Post To Question',
 				Question: question
 			});
-		})
-})
+		});
+});
 
 router.post('/question/create', function(req, res, next){
 	Question
@@ -165,7 +166,7 @@ router.post('/register', function(req, res){
 		password: req.body.password
 	})
 		.then(function(user){
-			res.redirect('/user')
+			res.redirect('/users')
 		})
 })
 
@@ -177,6 +178,7 @@ router.get('/users', function(req, res){
 		.then(function(user){
 			res.render('user/index', {
 				title: 'All Users',
+				avatar: gravatar.url(user.email),
 				User: user
 			})
 		})

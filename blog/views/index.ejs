@@ -9,7 +9,7 @@
 			<div class="col-md-4">
 				② This is law search engine.
 			</div>
-			
+
 			<div class="col-md-4">
 				③ Lawverflow is like a stackoverflow(It is programming Q&A site.)
 			</div>
@@ -23,21 +23,46 @@
   	<div class="col-sm-1 sidebar">
   		padding
     </div>
+<div class="col-sm-8">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#menu0">New</a></li>
+    <li><a data-toggle="tab" href="#menu1">Feartured</a></li>
+    <li><a data-toggle="tab" href="#menu2">Hot</a></li>
+    <li><a data-toggle="tab" href="#menu3">Interesting</a></li>
+  </ul>
 
-    <div class="col-sm-8">
-		<h4><strong>Today's Questions</strong></h4>
-		<hr>
-		<% Question.forEach(function(Question){ %>
-			<li style="list-style:none;">
-				Subject : <%= Question.subject %>
-				<br>
-				Content : <strong><a href="/question/<%= Question.id %>"><%= Question.content %></a></strong>
-				<a href="/question/delete/<%= Question.id %>" onClick="delete_confirm()">x</a>
-				<a href="/question/edit/<%= Question.id %>">Edit</a>
-				<hr>
-			</li>
-		<% }) %>
+  <div class="tab-content">
+    <div id="menu0" class="tab-pane fade in active">
+	    <div class="col-sm-8">
+			<h4><strong>Today's Questions</strong></h4>
+			<hr>
+			<% Question.forEach(function(Question){ %>
+				<li style="list-style:none;">
+					Subject : <%= Question.subject %>
+					<br>
+					Content : <strong><a href="/question/<%= Question.id %>"><%= Question.content %></a></strong>
+					<a href="/question/delete/<%= Question.id %>" onClick="delete_confirm()">x</a>
+					<a href="/question/edit/<%= Question.id %>">Edit</a>
+					<hr>
+				</li>
+			<% }) %>
+	    </div>
     </div>
+    <div id="menu1" class="tab-pane fade">
+	    <h3>Feartured</h3>
+	    <p>feartured</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+	    <h3>Hot</h3>
+	    <p>Hot</p>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+	    <h3>Interesting</h3>
+	    <p>Interesting</p>
+    </div>
+  </div>
+</div>
+
 
     <div class="col-sm-2">
         <div class="sidebar-title">

@@ -1,18 +1,21 @@
 <% include ../layouts/header %>
 
 <div class="container">
+	<div class="jumbotron">
 	<p><%= Question.id %>'s Question...</p>
 	<%= Question.subject %>
 	<%= Question.content %>
+	</div>
 	<br>
 	<br>
 	<a href="/question/<%= Question.id %>/answer">Comment☆</a>
 	<br>
 	<br>
-	
-	<%= Question.Answers.map(function (answer) {
+	<div class="jumbotron">
+		<%= Question.Answers.map(function (answer) {
 		return answer.answer
 		}).join(' / ') %>
+	</div>
 
 </div>
 

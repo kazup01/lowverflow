@@ -44,6 +44,9 @@
   <div class="tab-content">
     <div id="menu0" class="tab-pane fade in active">
 	    <div class="col-sm-8">
+	    <br>
+	    <br>
+	    <br>
 			<h4><strong>Today's Questions</strong></h4>
 			<hr>
 			<% Question.forEach(function(question){ %>
@@ -51,8 +54,8 @@
 					Subject : <%= question.subject %>
 					<br>
 					Content : <strong><a href="/question/<%= question.id %>"><%= question.content %></a></strong>
-					<a href="/question/delete/<%= question.id %>" onClick="delete_confirm()">x</a>
-					<a href="/question/edit/<%= question.id %>">Edit</a>
+					<a href="/question/delete/<%= question.id %>" onClick="delete_confirm()"><button type="button" class="btn btn-danger">x</button></a>
+					<a href="/question/edit/<%= question.id %>"><button type="button" class="btn btn-primary">Edit</button></a>
 					<hr>
 				</li>
 			<% }) %>

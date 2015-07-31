@@ -1,0 +1,21 @@
+<% include ../layouts/header %>
+
+<div class="container">
+
+	<form method="POST" action="/users/<%= User.id %>/edit">
+		
+		email: <input type="email" name="email" value="<%= User.email %>">
+
+		<input type="submit" value="Submit">
+
+	</form>
+
+	<hr>
+
+	<h2><a href="/users/<%= User.id %>">I'll be back.</a></h2>
+
+	<hr>
+
+</div>
+
+<% include ../layouts/footer %>

@@ -45,6 +45,9 @@ app.use('/category/:id', Category);
 app.use('/category/create', Category);
 app.use('/users', User);
 
+app.use('/login', User);
+
+
 /** html */
 app.get('/test', function(req, res){
     res.sendFile(path.join(__dirname + '/views/test.html'));

@@ -171,7 +171,13 @@ router.post('/register', function(req, res){
 
 /** ----------------------------- */
 
+/** LOGIN */
+
+
+/** ----------------------------- */
+
 /** USER */
+//show all
 router.get('/users', function(req, res){
 	User.findAll()
 		.then(function(user){
@@ -182,6 +188,40 @@ router.get('/users', function(req, res){
 			})
 		})
 })
+
+//show person
+router.get('/users/:id', function(req, res){
+	User.findById(req.params.id)
+		.then(function(user){
+			res.render('user/show', {
+				title: 'Show Users',
+				avatar: gravatar.url(user.email),
+				User: user
+			});
+		});
+});
+
+//change email
+router.get('/users/:id/edit', function(req, res){
+	User.findById(req.params.id)
+		.then(function(user){
+			res.render('user/email_change', {
+				title: 'Email change',
+				avatar: gravatar.url(user.email),
+				User: user
+			});
+		});
+});
+
+router.post('/users/:id/edit', function(req, res){
+	User.findById(req.params.id)
+		.then(function(user){
+			user.update(req.body)
+				.then(function(){
+					res.redirect('/users');
+				});
+		});
+});
 
 
 /** ----------------------------- */

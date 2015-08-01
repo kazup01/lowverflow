@@ -36,8 +36,8 @@
 <div class="col-sm-8">
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#menu0">New</a></li>
-    <li><a data-toggle="tab" href="#menu1">Feartured</a></li>
-    <li><a data-toggle="tab" href="#menu2">Hot</a></li>
+    <li><a data-toggle="tab" href="#menu1">Tag</a></li>
+    <li><a data-toggle="tab" href="#menu2">Category</a></li>
     <li><a data-toggle="tab" href="#menu3">Question</a></li>
   </ul>
 
@@ -47,7 +47,7 @@
 	    <br>
 	    <br>
 	    <br>
-			<h4><strong>Today's Questions</strong></h4>
+			<h3><strong>Today's Questions</strong></h3>
 			<hr>
 			<% Question.forEach(function(question){ %>
 				<li style="list-style:none;">
@@ -63,13 +63,19 @@
     </div>
     
     <div id="menu1" class="tab-pane fade">
-	    <h3>Feartured</h3>
-	    <p>feartured</p>
+	    <h3>Tag</h3>
+	    <% Tag.forEach(function(tag){ %>
+	    	<%= tag.tag %>
+	    	<hr>
+	    <% }) %>
     </div>
     
     <div id="menu2" class="tab-pane fade">
-	    <h3>Hot</h3>
-	    <p>Hot</p>
+	    <h3>Category</h3>
+	    <% Category.forEach(function(category){ %>
+	    	<%= category.category %>
+	    	<hr>
+	    <% }) %>
     </div>
     
     <div id="menu3" class="tab-pane fade">

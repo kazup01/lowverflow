@@ -27,7 +27,13 @@ module.exports = function (sequelize, DataTypes) {
       }
     }
   },
-  {
+  { 
+    instanceMethods: {
+      comparePassword: function (password) {
+        if (password == null) return false
+        return bcrypt.compareSync(password, this.password)
+      }
+    },
     classMethods: function(models){
       User.hasMany(models.Question)
       User.hasMany(models.Answer)

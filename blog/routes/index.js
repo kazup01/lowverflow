@@ -10,14 +10,24 @@ var gravatar = require('gravatar');
 
 /** TOP */
 router.get('/', function(req, res, next){
-	Question.findAll()
-		.then(function(question){
-			res.render('index',{
-				title: 'lawverflow',
-				Question: question
+	var questions = Question.findAll()
+	var tags = Tag.findAll()
+	var categories = Category.findAll()
+
+	Promise.all([questions, tags, categories])
+		.then(function (result) {
+			var questions = result[0]
+			var tags = result[1]
+			var categories = result[2]
+
+			res.render('index', {
+				Question: questions,
+				Tag: tags,
+				Category: categories,
+				title: 'lawverflow'
 			});
 		});
-});
+});;
 
 
 
@@ -38,7 +48,8 @@ router.post('/question/create', function(req, res, next){
 	Question
 		.create({
 			subject: req.body.subject,
-			content: req.body.content
+			content: req.body.content,
+			UserId: req.session.userId
 		})
 		.then(function(question){
 			return new Promise(function (resolve, reject) {
@@ -78,10 +89,12 @@ router.get('/question/:id', function(req, res){
 	Question
 		.findById(req.params.id, {
 			include: [
-				{ model: Answer }
+				{ model: Answer },
+				{ model: User }
 			]
 		})
 		.then(function (question){
+			question.User.name,
 			res.render('question/show',{
 				title: 'Question',
 				Question: question
@@ -140,7 +153,7 @@ router.post('/question/:id/answer', function (req, res) {
 			return question.createAnswer({answer: req.body.answer})
 		})
 		.then(function () {
-			res.redirect('/question/create')
+			res.redirect('/question/' + req.params.id)
 		})
 })
 
@@ -166,12 +179,40 @@ router.post('/register', function(req, res){
 	})
 		.then(function(user){
 			res.redirect('/users')
+		}).catch(function(err){
+			res.redirect('/register')
 		})
 })
 
 /** ----------------------------- */
 
+router.get('/login', function (req, res) {
+	if (req.session.userId == null) {
+		res.render('auth/login',{
+			title: 'login'
+		})	
+	} else {
+		res.redirect('/')
+	}
+})
+
 /** LOGIN */
+router.post('/login', function (req, res) {
+	User
+		.findOne({
+			where: {
+				email: req.body.email
+			}
+		}).then(function (user) {
+			if(user.comparePassword(req.body.password)){
+				req.session.userId = user.id
+				res.redirect('/')
+			
+				return
+			}
+			res.redirect('/login')
+		})
+})
 
 
 /** ----------------------------- */

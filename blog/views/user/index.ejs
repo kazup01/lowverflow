@@ -2,7 +2,7 @@
 
 <div class="container">
 		<% User.forEach(function(user){ %>
-			<p><img src="<%= avatar %>?s=30" alt="Users photo">　<%= user.name %> : <%= user.email %></p>
+			<p><img src="<%= avatar %>?s=30" alt="Users photo">　<%= user.name %> : <%= user.email %>　<a href="/users/<%= user.id %>/edit"><font color="red">change profile</font></a></p>
 		<% }) %>
 		
 		<!-- avatarはroutes/index.jsに記述済み -->

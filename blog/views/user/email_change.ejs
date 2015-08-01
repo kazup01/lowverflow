@@ -3,10 +3,12 @@
 <div class="container">
 
 	<form method="POST" action="/users/<%= User.id %>/edit">
+
+		name: <input type="text" name="name" value="<%= User.name %>">
 		
 		email: <input type="email" name="email" value="<%= User.email %>">
 
-		<input type="submit" value="Submit">
+		<input type="submit" value="Submit" onClick="change_confirm()">
 
 	</form>
 
@@ -17,5 +19,11 @@
 	<hr>
 
 </div>
+
+<script language="javascript"><!--
+	function change_confirm() {
+	    window.confirm("CHANGE OK?");
+	};
+//--></script>
 
 <% include ../layouts/footer %>

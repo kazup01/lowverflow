@@ -31,21 +31,32 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /** route */
 app.use('/', routes);
+
+//Question
+app.use('/question/create', Question);
 app.use('/question/:id', Question);
 app.use('/question/:id/answer', Question);
-app.use('/question/create', Question);
 app.use('/question/edit/:id', Question);
 app.use('/question/delete/:id', Question);
+
+//Auth
 app.use('/register', User);
+app.use('/login', User);
+
+//Tag
 app.use('/tag/index', Tag);
 app.use('/tag/:id', Tag);
 app.use('/tag/create', Tag);
+
+//Category
 app.use('/category/index', Category);
 app.use('/category/:id', Category);
 app.use('/category/create', Category);
-app.use('/users', User);
 
-app.use('/login', User);
+//User
+app.use('/users', User);
+app.use('/users/:id', User);
+app.use('/users/:id/edit', User);
 
 
 /** html */

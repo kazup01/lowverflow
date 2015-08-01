@@ -205,7 +205,7 @@ router.get('/users/:id', function(req, res){
 router.get('/users/:id/edit', function(req, res){
 	User.findById(req.params.id)
 		.then(function(user){
-			res.render('user/email_change', {
+			res.render('user/profile_change', {
 				title: 'Email change',
 				avatar: gravatar.url(user.email),
 				User: user

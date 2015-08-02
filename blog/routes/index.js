@@ -181,8 +181,8 @@ router.post('/register', function(req, res){
 			res.redirect('/users')
 		}).catch(function(err){
 			res.redirect('/register')
-		})
-})
+		});
+});
 
 /** ----------------------------- */
 

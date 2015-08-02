@@ -1,3 +1,4 @@
+/** ----- package ----- */
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -16,10 +17,13 @@ var Answer = require('./routes/index');
 var FileStore = require('session-file-store')(session);
 
 var app = express();
+/* ----- ----- **/
+
  
-// view engine setup
+/** ----- view engine setup ----- */
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+/* ----- ----- **/
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -37,7 +41,8 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-/** route */
+/** ----- route ----- */
+//Top
 app.use('/', routes);
 
 //Question
@@ -65,6 +70,7 @@ app.use('/category/create', Category);
 app.use('/users', User);
 app.use('/users/:id', User);
 app.use('/users/:id/edit', User);
+/* ----- ----- **/
 
 
 /** html */
@@ -73,6 +79,7 @@ app.get('/test', function(req, res){
 });
 
 
+/** ----- error ----- */
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -103,6 +110,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+/* ----- ----- **/
 
 
 module.exports = app;

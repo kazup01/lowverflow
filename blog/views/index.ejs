@@ -43,23 +43,26 @@
 
 	  <div class="tab-content">
 	    <div id="menu0" class="tab-pane fade in active">
-		    <div class="col-sm-8">
 		    <br>
-		    <br>
-		    <br>
-				<h3><strong>Today's Questions</strong></h3>
-				<hr>
-				<% Question.forEach(function(question){ %>
-					<li style="list-style:none;">
-						Subject : <%= question.subject %>
-						<br>
-						Content : <strong><a href="/question/<%= question.id %>"><%= question.content %></a></strong>
-						<a href="/question/delete/<%= question.id %>" onClick="delete_confirm()"><button type="button" class="btn btn-danger">x</button></a>
-						<a href="/question/edit/<%= question.id %>"><button type="button" class="btn btn-primary">Edit</button></a>
-						<hr>
-					</li>
-				<% }) %>
-		    </div>
+			<h3><strong>Today's Questions</strong></h3>
+			<hr>
+			<% Question.forEach(function(question){ %>
+				<div class="row">
+					<div class="top-question">
+						<div class="col-sm-1 q-count">answer</div>
+						<div class="col-sm-1 q-count">view</div>
+						<div class="col-sm-8">
+							<li style="list-style:none;">
+								Subject : <strong><a href="/question/<%= question.id %>"><%= question.subject %></a></strong>
+							</li>
+						</div>
+						<div class="2">
+							<a href="/question/delete/<%= question.id %>" onClick="delete_confirm()"><button type="button" class="btn btn-delete">x</button></a>
+							<a href="/question/edit/<%= question.id %>"><button type="button" class="btn btn-edit">Edit</button></a>
+						</div>
+					</div>
+				</div>
+			<% }) %>
 	    </div>
 	    
 	    <div id="menu1" class="tab-pane fade">

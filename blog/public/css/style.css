@@ -17,6 +17,34 @@ body {
 .row-contents {
 	padding-top: 20px;
 }
+
+.top-question {
+	border-bottom: 1px solid #eeeeee;
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+
+.q-count {
+	background-color: #75845C;
+	color: #fff;
+	border-color: #fff;
+	margin: 0px 3px 0px 0px;
+	min-width: 44px;
+	height: auto;
+	font-size: 11px;
+	text-align: center;
+	padding: 10px;
+}
+
+.btn-delete {
+	background-color: #fff;
+	border-color: #222;
+}
+
+.btn-edit {
+	background-color: #fff;
+	border-color: #222;
+}
 /** ------------- */
 
 

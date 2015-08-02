@@ -10,15 +10,15 @@ var gravatar = require('gravatar');
 
 /** TOP */
 router.get('/', function(req, res, next){
-	var questions = Question.findAll()
-	var tags = Tag.findAll()
-	var categories = Category.findAll()
+	var questions = Question.findAll();
+	var tags = Tag.findAll();
+	var categories = Category.findAll();
 
 	Promise.all([questions, tags, categories])
 		.then(function (result) {
-			var questions = result[0]
-			var tags = result[1]
-			var categories = result[2]
+			var questions = result[0];
+			var tags = result[1];
+			var categories = result[2];
 
 			res.render('index', {
 				Question: questions,
@@ -27,7 +27,7 @@ router.get('/', function(req, res, next){
 				title: 'lawverflow'
 			});
 		});
-});;
+});
 
 
 
@@ -186,6 +186,7 @@ router.post('/register', function(req, res){
 
 /** ----------------------------- */
 
+/** LOGIN */
 router.get('/login', function (req, res) {
 	if (req.session.userId == null) {
 		res.render('auth/login',{
@@ -196,7 +197,6 @@ router.get('/login', function (req, res) {
 	}
 })
 
-/** LOGIN */
 router.post('/login', function (req, res) {
 	User
 		.findOne({
@@ -210,10 +210,20 @@ router.post('/login', function (req, res) {
 			
 				return
 			}
-			res.redirect('/login')
-		})
-})
+			res.redirect('/login');
+		});
+});
 
+// router.post('/logout', function(req, res){
+// 	req.session.logout();
+// 	res.clearCookie('userId');
+// 	res.redirect('/');
+// });
+router.get('/logout', function(req, res){
+	req.session.destroy(function(){
+		res.redirect('/');
+	});
+});
 
 /** ----------------------------- */
 

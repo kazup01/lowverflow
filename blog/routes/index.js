@@ -214,11 +214,6 @@ router.post('/login', function (req, res) {
 		});
 });
 
-// router.post('/logout', function(req, res){
-// 	req.session.logout();
-// 	res.clearCookie('userId');
-// 	res.redirect('/');
-// });
 router.get('/logout', function(req, res){
 	req.session.destroy(function(){
 		res.redirect('/');
@@ -236,9 +231,9 @@ router.get('/users', function(req, res){
 				title: 'All Users',
 				avatar: gravatar.url(user.email),
 				User: user
-			})
-		})
-})
+			});
+		});
+});
 
 //show person
 router.get('/users/:id', function(req, res){

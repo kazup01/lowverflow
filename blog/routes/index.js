@@ -279,7 +279,7 @@ router.get('/tag/index', function(req, res){
 			res.render('tag/index', {
 				title: 'All Tags',
 				Tag: tag
-			})
+			});
 		});
 });
 

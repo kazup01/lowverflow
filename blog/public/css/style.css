@@ -29,14 +29,16 @@ a {
 
 /** FEATURES */
 .features {
-	background-color: #E9F7FD;
-	color: #515A61;
+	background-color: #80A8CC;
+	color: #fff;
 	margin-bottom: 0px;
 }
 /** ------------- */
 
 
-
+.fa {
+	color: #fff;
+}
 
 .strip {
 	border-top: 1px solid #DCE2E5;

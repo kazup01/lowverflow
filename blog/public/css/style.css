@@ -47,13 +47,31 @@ a {
 
 
 /** SIDEBAR */
-.sidebar-title {
+.sidebar-add {
+/*	border-top: 40px solid #E67E22;*/
+	padding-top: 20px;
+	border-bottom: 8px solid #E67E22;
+	border-left: 8px solid #E67E22;
+	border-right: 8px solid #E67E22;
+	background-color: #E67E22;
+}
+
+.sidebar-category {
 /*	border-top: 40px solid #0077CC;*/
 	padding-top: 20px;
-	border-bottom: 8px solid #0077CC;
-	border-left: 8px solid #0077CC;
-	border-right: 8px solid #0077CC;
-	background-color: #0077CC;
+	border-bottom: 8px solid #3498DB;
+	border-left: 8px solid #3498DB;
+	border-right: 8px solid #3498DB;
+	background-color: #3498DB;
+}
+
+.sidebar-tag {
+/*	border-top: 40px solid #27AE60;*/
+	padding-top: 20px;
+	border-bottom: 8px solid #27AE60;
+	border-left: 8px solid #27AE60;
+	border-right: 8px solid #27AE60;
+	background-color: #27AE60;
 }
 
 .sidebar-text {

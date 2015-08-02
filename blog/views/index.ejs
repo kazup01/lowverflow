@@ -105,7 +105,7 @@
 
 
     <div class="col-sm-2">
-        <div class="sidebar-title">
+        <div class="sidebar-add">
         <center><p class="sidebar-text">Sponcer</p></center>
         	<div class="sidebar-right">
         		<-- add space -->
@@ -114,13 +114,25 @@
 
 		<hr>
 
-        <div class="sidebar-title">
-        <center><p class="sidebar-text">Hot Question!</p></center>
+        <div class="sidebar-category">
+        <center><p class="sidebar-text">Category</p></center>
         	<div class="sidebar-right">
-				<% Question.forEach(function(question){ %>
-					<option value=""><a href="/question/<%= question.id %>"><%= question.subject %></a></option>
+				<% Category.forEach(function(category){ %>
+					<option value=""><a href="/category/<%= category.id %>"><%= category.category %></a></option>
 					<hr>
 				<% }) %>
+        	</div>
+        </div>
+
+        <hr>
+
+        <div class="sidebar-tag">
+        <center><p class="sidebar-text">Tag</p></center>
+        	<div class="sidebar-right">
+        		<% Tag.forEach(function(tag){ %>
+        			<option value=""><a href="/tag/<%= tag.id %>"><%= tag.tag %></a></option>
+        			<hr>
+        		<% }) %>
         	</div>
         </div>
     </div>

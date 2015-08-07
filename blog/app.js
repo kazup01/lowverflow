@@ -78,7 +78,6 @@ app.get('/test', function(req, res){
     res.sendFile(path.join(__dirname + '/views/test.html'));
 });
 
-
 /** ----- error ----- */
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -110,6 +109,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
 /* ----- ----- **/
 
 

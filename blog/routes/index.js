@@ -19,7 +19,7 @@ router.get('/', function(req, res, next){
 			var questions = result[0];
 			var tags = result[1];
 			var categories = result[2];
-
+		
 			res.render('index', {
 				Question: questions,
 				Tag: tags,

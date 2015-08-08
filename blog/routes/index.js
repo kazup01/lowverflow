@@ -182,6 +182,8 @@ router.post('/register', function(req, res){
 		}).catch(function(err){
 			res.redirect('/register')
 		});
+
+
 });
 
 /** ----------------------------- */
@@ -214,6 +216,7 @@ router.post('/login', function (req, res) {
 		});
 });
 
+/** LOGOUT */
 router.get('/logout', function(req, res){
 	req.session.destroy(function(){
 		res.redirect('/');

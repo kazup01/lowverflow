@@ -5,17 +5,21 @@
 	<h1 class="register-title">Welcome</h1>
 
 	<form method="POST" action="/register" class="register">
-			<input type="text" name="name" placeholder="Dick choi" class="register-input" required>
 
-			<input type="email" name="email" placeholder="Email" data-error="Email address is invalid" class="register-input" required>
-			<div class="help-block with-errors"></div>
+		<input type="text" name="name" placeholder="Dick choi" class="register-input" required>
 
-		      <input type="password" name="password" id="inputPassword" data-minlength="6" placeholder="Password" class="register-input" required>
-<!-- 		      <span class="help-block">minimum of 6 characters</span> -->
+		<input type="email" name="email" placeholder="Email" data-error="Email address is invalid" class="register-input" required>
+		<div class="help-block with-errors"></div>
 
-			<input type="submit" class="register-input" value="Create Account">
-			<p class="link-to-login"><a href="/login"><font color="#4094C9">or login?</font></a></p>
+		<input type="password" name="password" id="inputPassword" data-minlength="6" placeholder="Password" class="register-input" required>
+		<!-- 		      <span class="help-block">minimum of 6 characters</span> -->
+
+		<input type="submit" class="register-input" value="Create Account">
+
+		<p class="link-to-login"><a href="/login"><font color="#4094C9">or login?</font></a></p>
+
 	</form>
+
 	<div class="container">
 		<h2><a href="/"><font color="#fff">back</font></a></h2>		
 	</div>

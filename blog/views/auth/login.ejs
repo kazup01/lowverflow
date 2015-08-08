@@ -1,24 +1,24 @@
 <% include ../layouts/header %>
-<div class="container">
 
-	<form method="POST" action="/login">
-		<div class="form-group">
-			<label>email</label>
-			<input type="email" name="email" placeholder="Email" class="form-control">
-		</div>
+<div class="container-register">
 
-		<div class="form-group">
-		    <label>password</label>
-		    <div class="form-group">
-		      <input type="password" name="password" placeholder="Password" class="form-control">
-		    </div>
-		</div>
+	<h1 class="register-title">Welcome back</h1>
 
-		<div class="form-group">
-			<button type="submit" class="btn btn-primary">submit</button>
-		</div>
+	<form method="POST" action="/login" class="register">
+
+		<input type="email" name="email" placeholder="Email" class="register-input">
+
+		<input type="password" name="password" placeholder="Password" class="register-input">
+
+		<input type="submit" class="register-input" value="Login">
+
+		<p class="link-to-login"><a href="/register"><font color="#4094C9">or register?</font></a></p>
+
 	</form>
+	
+	<div class="container">
+		<h2><a href="/"><font color="#fff">back</font></a></h2>
+	</div>
 
-	<h2><a href="/">back</a></h2>
 </div>
 <% include ../layouts/footer %>

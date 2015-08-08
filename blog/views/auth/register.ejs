@@ -1,31 +1,25 @@
 <% include ../layouts/header %>
-<div class="container">
-	<form method="POST" action="/register">
-		<div class="form-group">
-			<label>name</label>
-			<input type="text" name="name" placeholder="Cina Saffary" class="form-control" required>
-		</div>
 
-		<div class="form-group">
-			<label>email</label>
-			<input type="email" name="email" placeholder="Email" data-error="Email address is invalid" class="form-control" required>
+<div class="container-register">
+
+	<h1 class="register-title">Welcome</h1>
+
+	<form method="POST" action="/register" class="register">
+			<input type="text" name="name" placeholder="Dick choi" class="register-input" required>
+
+			<input type="email" name="email" placeholder="Email" data-error="Email address is invalid" class="register-input" required>
 			<div class="help-block with-errors"></div>
-		</div>
 
-		<div class="form-group">
-		    <label>password</label>
-		    <div class="form-group">
-		      <input type="password" name="password" id="inputPassword" data-minlength="6" placeholder="Password" class="form-control" required>
-		      <span class="help-block">minimum of 6 characters</span>
-		    </div>
-		</div>
+		      <input type="password" name="password" id="inputPassword" data-minlength="6" placeholder="Password" class="register-input" required>
+<!-- 		      <span class="help-block">minimum of 6 characters</span> -->
 
-		<div class="form-group">
-			<button type="submit" class="btn btn-primary">submit</button>
-		</div>
+			<input type="submit" class="register-input" value="Create Account">
+			<p class="link-to-login"><a href="/login"><font color="#4094C9">or login?</font></a></p>
 	</form>
+	<div class="container">
+		<h2><a href="/"><font color="#fff">back</font></a></h2>		
+	</div>
 
-	<h2><a href="/">back</a></h2>
 </div>
 
 <script>

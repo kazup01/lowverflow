@@ -150,7 +150,10 @@ router.get('/question/:id/answer', function(req, res){
 router.post('/question/:id/answer', function (req, res) {
 	Question.findById(req.params.id)
 		.then(function(question){
-			return question.createAnswer({answer: req.body.answer})
+			return question.createAnswer({
+						answer: req.body.answer,
+						UserId: req.session.userId
+					})
 		})
 		.then(function () {
 			res.redirect('/question/' + req.params.id)

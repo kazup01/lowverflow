@@ -1,33 +1,43 @@
 <% include layouts/header %>
-<div class="jumbotron features">
-	<div class="container">
-		<div class="row">
-		<center><h3>lawverflow is Q&A communities. Here's how:</h3></center>
-		<br>
-		<br>
-		<br>
-			<div class="col-md-4">
-				<center><i class="fa fa-question-circle fa-5x"></i></center>
-				<br>
-				<center>① Lawverflow is Q&A platform for searching law information.</center>
+<div class="container-fluid">
+
+			<div class="col-sm-1">
+				padding
+			</div>
+			<div class="col-sm-10 row-top">
+
+				<div class="col-md-3">
+					<center>Lawverflow is Q&A platform for searching law information.</center>
+					<br>
+					<center><button class="btn btn-top">aaa</button></center>
+				</div>
+		
+				<div class="col-md-3">
+					<center><i class="fa fa-question-circle fa-5x"></i></center>
+					<br>
+					<center>① Lawverflow is Q&A platform for searching law information.</center>
+				</div>
+
+				<div class="col-md-3">
+					<center><i class="fa fa-hand-o-up fa-5x"></i></center>
+					<br>
+					<center>② This is law search engine.</center>
+				</div>
+
+				<div class="col-md-3">
+					<center><i class="fa fa-stack-exchange fa-5x"></i></center>
+					<br>
+					<center>③ Lawverflow is like a stackoverflow(It is programming Q&A site.)</center>
+				</div>
 			</div>
 
-			<div class="col-md-4">
-				<center><i class="fa fa-hand-o-up fa-5x"></i></center>
-				<br>
-				<center>② This is law search engine.</center>
+			<div class="col-sm-1">
+				padding
 			</div>
-
-			<div class="col-md-4">
-				<center><i class="fa fa-stack-exchange fa-5x"></i></center>
-				<br>
-				<center>③ Lawverflow is like a stackoverflow(It is programming Q&A site.)</center>
-			</div>
-		</div>
 	</div>
 </div>
 
-<div class="container-fluid strip">
+<div class="container-fluid">
   <div class="row row-contents">
 
   	<div class="col-sm-1 sidebar">
@@ -52,9 +62,6 @@
 						<div class="col-sm-1 q-count">answer</div>
 						<div class="col-sm-1 q-count">view</div>
 						<div class="col-sm-8">
-							<li style="list-style:none;">
-								Subject : <strong><a href="/question/<%= question.id %>"><%= question.subject %></a></strong>
-							</li>
 							<li style="list-style:none;">
 								Subject : <strong><a href="/question/<%= question.id %>"><%= question.subject %></a></strong>
 							</li>

@@ -55,6 +55,9 @@
 							<li style="list-style:none;">
 								Subject : <strong><a href="/question/<%= question.id %>"><%= question.subject %></a></strong>
 							</li>
+							<li style="list-style:none;">
+								Subject : <strong><a href="/question/<%= question.id %>"><%= question.subject %></a></strong>
+							</li>
 						</div>
 						<div class="2">
 							<a href="/question/delete/<%= question.id %>" onClick="delete_confirm()"><button type="button" class="btn btn-delete">x</button></a>
@@ -82,6 +85,7 @@
 	    </div>
 	    
 	    <div id="menu3" class="tab-pane fade">
+			
 			<form name="question" method="POST" action="/question/create">
 				<h3>Question</h3>
 

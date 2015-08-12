@@ -170,10 +170,13 @@ router.get('/question/:id/answer', function(req, res){
 router.post('/question/:id/answer', function (req, res) {
 	Question.findById(req.params.id)
 		.then(function(question){
-			return question.createAnswer({
-						answer: req.body.answer,
-						UserId: req.session.userId
-					})
+			if(req.session.userId){
+				return question.createAnswer({
+							answer: req.body.answer,
+							UserId: req.session.userId
+				})
+			}
+			req.status(401).send('NOT AUTHORIZED')
 		})
 		.then(function () {
 			res.redirect('/question/' + req.params.id)

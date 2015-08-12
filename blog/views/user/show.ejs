@@ -1,12 +1,18 @@
 <% include ../layouts/header %>
 
 <div class="container">
+	
 	<h1><font color="red"><%= User.name %></font>'s Page</h1>
+	
+	<hr>
+	
+	adress: <%= User.email %>
+	<% if(currentUser != null && currentUser.id === User.id){ %>
+	<a href="/users/<%= User.id %>/edit"><button type="button" class="btn btn-success">edit</button></a>
+	<% } %>
+
 	<hr>
 
-	adress: <%= User.email %>　<a href="/users/<%= User.id %>/edit"><button type="button" class="btn btn-success">edit</button></a>
-
-	<hr>
 </div>
 
 <% include ../layouts/footer %>

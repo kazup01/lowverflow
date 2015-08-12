@@ -157,10 +157,13 @@ router.get('/question/delete/:id', function(req, res){
 router.get('/question/:id/answer', function(req, res){
 	Question.findById(req.params.id)
 		.then(function(question){
-			res.render('answer/create', {
+			if(req.session.userId){
+				res.render('answer/create', {
 				title: 'Answer',
 				Question: question
-			})
+				})
+			}
+			res.redirect('/question/' + req.params.id)
 		})
 })
 

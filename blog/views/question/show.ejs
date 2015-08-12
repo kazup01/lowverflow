@@ -20,14 +20,19 @@
 	</div>
 
 	<br>
+
 	<div class="jumbotron">
-		<form method="POST" action="/question/<%= Question.id %>/answer">
+		<% if(currentUser){ %>
+			<form method="POST" action="/question/<%= Question.id %>/answer">
 			<h2><a href="/question/<%= Question.id %>/answer"><font color="red">Answer☆</font></a></h2>
 			<br>
 				<input type="text" name="answer">
 			</p>
 			<input type="submit" value="Submit" class="btn btn-danger">
 		</form>
+		<% }else{ %>
+			<p><a href="/register">こちらより会員登録したら回答できます。</a></p>
+		<% } %>
 	<br>
 	<br>
 

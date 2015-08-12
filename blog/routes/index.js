@@ -117,7 +117,7 @@ router.get('/question/edit/:id', function(req, res){
 	Question.findById(req.params.id)
 		.then(function(question){
 			if(req.session.userId != question.userId){
-				res.redirect('/question/' + req.params.id)				
+				res.redirect('/question/' + req.params.id)
 			}
 			res.render('question/edit', {
 				title: 'Edit To Question',
@@ -135,7 +135,7 @@ router.post('/question/edit/:id', function(req, res){
 			question.update(req.body)
 				.then(function(){
 					res.redirect('/')
-				})	
+				})
 
 		})
 })
@@ -274,6 +274,9 @@ router.get('/users/:id', function(req, res){
 router.get('/users/:id/edit', function(req, res){
 	User.findById(req.params.id)
 		.then(function(user){
+			if(req.session.userId == null && req.session.userId != User.id){
+				res.redirect('/users/' + req.params.id)
+			}
 			res.render('user/profile_change', {
 				title: 'Email change',
 				avatar: gravatar.url(user.email),

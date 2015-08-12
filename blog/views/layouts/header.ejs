@@ -17,9 +17,6 @@
 </head>
 <body>
 <div class="container">
-<%if( currentUser) {%>
-	<%= currentUser.name %>
-	<%}%>
 	<nav class="navbar">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
@@ -37,14 +34,19 @@
 	      </ul>
 	<div class="clearfix">
 	      <ul id="nav">
+	      	<% if(currentUser){ %>
+	      	<li id="nav"><a href="/logout"><font color="#fff">Logout</font></a></li>
+	      	<% }else{ %>
   	      	<li id="nav"><a href="/login"><font color="#fff">Login</font></a></li>
+  	      	<% } %>
   	        <li id="nav"><a href="/register"><font color="#fff">Register</font></a></li>
   	        <li id="nav"><a href="/users"><font color="#fff">User</font></a></li>
   	        <li id="nav"><a href="/tag/index"><font color="#fff">Tag</font></a></li>
   	        <li id="nav"><a href="/category/index"><font color="#fff">Category</font></a></li>
 	        <li id="nav"><a href="/question/create"><font color="#fff">Question</font></a></li>
+	        <% if(currentUser){ %>
 	        <li id="nav" class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><font color="#fff">mypage</font> <span class="caret"></span></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><font color="#fff"><%= currentUser.name %></font> <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 	            <li><a href="#">Action1</a></li>
 	            <li><a href="#">Action2</a></li>
@@ -53,6 +55,7 @@
 	            <li><a href="#">Action4</a></li>
 	          </ul>
 	        </li>
+	        <% } %>
 	      </ul>
 	      </div>
 	    </div>

@@ -144,13 +144,13 @@ router.post('/question/edit/:id', function(req, res){
 router.get('/question/delete/:id', function(req, res){
 	Question.findById(req.params.id)
 		.then(function(question){
-			if(req.session.userId != question.UserId){
+			if(req.session.userId !== question.UserId){
 				res.status(401).send('NOT AUTHORIZED')
-			}
-			question.destroy()
-				.then(function(){
-					res.redirect('/')
-				})
+			}else{
+						question.destroy()
+							.then(function(){
+								res.redirect('/')
+							})}
 		})
 })
 

@@ -10,7 +10,11 @@ var gravatar = require('gravatar');
 
 /** TOP */
 router.get('/', function(req, res, next){
-	var questions = Question.findAll();
+	var questions = Question.findAll({
+		include: {
+			model: Answer
+		}
+	});
 	var tags = Tag.findAll();
 	var categories = Category.findAll();
 
@@ -53,10 +57,13 @@ router.post('/question/create', function(req, res, next){
 		})
 		.then(function(question){
 			return new Promise(function (resolve, reject) {
-				Category.findOne({name: req.body.categoryName})
+				Category.findOne({
+					where: {category: req.body.categoryName}
+				})
 				.then(function (category) {
+					console.log(category)
 					if (category == null) {
-						return question.createCategory({name: req.body.categoryName})
+						return question.createCategory({category: req.body.categoryName})
 					}
 					return question.addCategory(category)
 				})
@@ -67,10 +74,11 @@ router.post('/question/create', function(req, res, next){
 		})
 		.then(function(question){
 			return new Promise(function (resolve, reject) {
-				Tag.findOne({name: req.body.tagName})
+				Tag.findOne({where: {tag: req.body.tagName}
+				})
 				.then(function (tag) {
 					if(tag == null) {
-						return question.createTag({name: req.body.tagName})
+						return question.createTag({tag: req.body.tagName})
 					}
 					return question.addTag(tag)
 				})
@@ -90,7 +98,9 @@ router.get('/question/:id', function(req, res){
 		.findById(req.params.id, {
 			include: [
 				{ model: Answer },
-				{ model: User }
+				{ model: User },
+				{ model: Tag },
+				{ model: Category }
 			]
 		})
 		.then(function (question){
@@ -116,10 +126,14 @@ router.get('/question/edit/:id', function(req, res){
 router.post('/question/edit/:id', function(req, res){
 	Question.findById(req.params.id)
 		.then(function(question){
+			if(req.session.userId !== question.UserId) {
+				res.status(401).send('NOT AUTHORIZED')
+			}
 			question.update(req.body)
 				.then(function(){
 					res.redirect('/')
-				})
+				})	
+
 		})
 })
 
@@ -268,11 +282,17 @@ router.get('/users/:id/edit', function(req, res){
 router.post('/users/:id/edit', function(req, res){
 	User.findById(req.params.id)
 		.then(function(user){
-			user.update(req.body)
+			return user.update(req.body)
 				.then(function(){
 					res.redirect('/users');
-				});
-		});
+				})
+		})
+		.catch(function (err) {
+			if (err.name = 'SequelizeUniqueConstraintError') {
+				return res.redirect('back')
+			}
+			return res.redirect('users')
+		})
 });
 
 

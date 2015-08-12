@@ -10,14 +10,22 @@
 	内容　：　<%= Question.content %>
 	</div>
 	<br>
-	<br>
-	<a href="/question/<%= Question.id %>/answer"><font color="red">Answer☆</font></a>
-	<br>
-	<br>
+
 	<div class="jumbotron">
+		<form method="POST" action="/question/<%= Question.id %>/answer">
+			<h2><a href="/question/<%= Question.id %>/answer"><font color="red">Answer☆</font></a></h2>
+			<br>
+				<input type="text" name="answer">
+			</p>
+			<input type="submit" value="Submit" class="btn btn-danger">
+		</form>
+	<br>
+	<br>
+
 		<%= Question.Answers.map(function (answer) {
 		return answer.answer
 		}).join(' / ') %>
+
 	</div>
 
 </div>

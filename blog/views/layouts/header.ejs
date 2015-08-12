@@ -17,6 +17,9 @@
 </head>
 <body>
 <div class="container">
+<%if( currentUser) {%>
+	<%= currentUser.name %>
+	<%}%>
 	<nav class="navbar">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
@@ -41,7 +44,7 @@
   	        <li id="nav"><a href="/category/index"><font color="#fff">Category</font></a></li>
 	        <li id="nav"><a href="/question/create"><font color="#fff">Question</font></a></li>
 	        <li id="nav" class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><font color="#fff">mypage</font><span class="caret"></span></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><font color="#fff">mypage</font> <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 	            <li><a href="#">Action1</a></li>
 	            <li><a href="#">Action2</a></li>

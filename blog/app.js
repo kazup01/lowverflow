@@ -6,15 +6,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
-var session = require('express-session')
+var session = require('express-session');
+var FileStore = require('session-file-store')(session);
 
 var routes = require('./routes/index');
-var Question = require('./routes/index');
-var User = require('./routes/index');
-var Tag = require('./routes/index');
-var Category = require('./routes/index');
-var Answer = require('./routes/index');
-var FileStore = require('session-file-store')(session);
+
+var models = require('./models')
 
 var app = express();
 /* ----- ----- **/
@@ -40,36 +37,21 @@ app.use(session({
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+//header name
+app.use(function(req, res, next) {
+  models.User.findById(req.session.userId)
+    .then(function (user) {
+      //以下global変数を指定
+      res.locals = {currentUser: user}
+      next()
+    })
+})
+
+
 
 /** ----- route ----- */
 //Top
 app.use('/', routes);
-
-//Question
-app.use('/question/create', Question);
-app.use('/question/:id', Question);
-app.use('/question/:id/answer', Question);
-app.use('/question/edit/:id', Question);
-app.use('/question/delete/:id', Question);
-
-//Auth
-app.use('/register', User);
-app.use('/login', User);
-
-//Tag
-app.use('/tag/index', Tag);
-app.use('/tag/:id', Tag);
-app.use('/tag/create', Tag);
-
-//Category
-app.use('/category/index', Category);
-app.use('/category/:id', Category);
-app.use('/category/create', Category);
-
-//User
-app.use('/users', User);
-app.use('/users/:id', User);
-app.use('/users/:id/edit', User);
 /* ----- ----- **/
 
 
@@ -77,6 +59,7 @@ app.use('/users/:id/edit', User);
 app.get('/test', function(req, res){
     res.sendFile(path.join(__dirname + '/views/test.html'));
 });
+
 
 /** ----- error ----- */
 // catch 404 and forward to error handler

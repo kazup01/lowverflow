@@ -10,13 +10,13 @@
 	内容　：　<%= Question.content %>
 	<br>
 	<hr>
-	タ　グ　　：	<%= Question.Tags.map(function(tag) {
+	タ　グ　　：　<%= Question.Tags.map(function(tag){
 					return tag.tag
 				}).join(' / ') %>
 	<br>
 	カテゴリ　：　<%= Question.Categories.map(function(category){
 					return category.category
-				}) %>
+				}).join(' / ') %>
 	</div>
 
 	<br>

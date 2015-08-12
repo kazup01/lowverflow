@@ -147,10 +147,11 @@ router.get('/question/delete/:id', function(req, res){
 			if(req.session.userId !== question.UserId){
 				res.status(401).send('NOT AUTHORIZED')
 			}else{
-						question.destroy()
-							.then(function(){
-								res.redirect('/')
-							})}
+				question.destroy()
+					.then(function(){
+						res.redirect('/')
+					})
+			}
 		})
 })
 
@@ -283,27 +284,29 @@ router.get('/users/:id', function(req, res){
 router.get('/users/:id/edit', function(req, res){
 	User.findById(req.params.id)
 		.then(function(user){
-			if(req.session.userId == null && req.session.userId != User.id){
+			if(req.session.userId == null || req.session.userId !== User.id){
 				res.redirect('/users/' + req.params.id)
+			}else{
+				res.render('user/profile_change', {
+					title: 'Email change',
+					avatar: gravatar.url(user.email),
+					User: user
+				})
 			}
-			res.render('user/profile_change', {
-				title: 'Email change',
-				avatar: gravatar.url(user.email),
-				User: user
-			});
 		});
 });
 
 router.post('/users/:id/edit', function(req, res){
 	User.findById(req.params.id)
 		.then(function(user){
-			if(req.session.userId == null && req.session.userId != User.id){
+			if(req.session.userId == null || req.session.userId !== User.id){
 				req.status(401).send('NOT AUTHORIZED')
-			}
-			user.update(req.body)
-				.then(function(){
-					res.redirect('/users');
+			}else{
+				user.update(req.body)
+					.then(function(){
+						res.redirect('/users');
 				})
+			}
 		})
 		.catch(function (err) {
 			if (err.name = 'SequelizeUniqueConstraintError') {

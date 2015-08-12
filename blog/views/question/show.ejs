@@ -8,9 +8,18 @@
 	件名　：　<%= Question.subject %>
 	<br>
 	内容　：　<%= Question.content %>
-	</div>
 	<br>
+	<hr>
+	タ　グ　　：	<%= Question.Tags.map(function(tag) {
+					return tag.tag
+				}).join(' / ') %>
+	<br>
+	カテゴリ　：　<%= Question.Categories.map(function(category){
+					return category.category
+				}) %>
+	</div>
 
+	<br>
 	<div class="jumbotron">
 		<form method="POST" action="/question/<%= Question.id %>/answer">
 			<h2><a href="/question/<%= Question.id %>/answer"><font color="red">Answer☆</font></a></h2>

@@ -288,8 +288,10 @@ router.get('/users/:id/edit', function(req, res){
 router.post('/users/:id/edit', function(req, res){
 	User.findById(req.params.id)
 		.then(function(user){
-
-			return user.update(req.body)
+			if(req.session.userId == null && req.session.userId != User.id){
+				req.status(401).send('NOT AUTHORIZED')
+			}
+			user.update(req.body)
 				.then(function(){
 					res.redirect('/users');
 				})

@@ -116,7 +116,7 @@ router.get('/question/:id', function(req, res){
 router.get('/question/edit/:id', function(req, res){
 	Question.findById(req.params.id)
 		.then(function(question){
-			if(req.session.userId != question.userId){
+			if(req.session.userId !== question.UserId){
 				res.redirect('/question/' + req.params.id)
 			}
 			res.render('question/edit', {

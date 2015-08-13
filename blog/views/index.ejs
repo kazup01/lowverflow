@@ -59,18 +59,27 @@
 				<div class="row">
 					<div class="top-question">
 						<div class="col-sm-1 q-count">
-						<%= question.Answers.length %></div>
-						<div class="col-sm-1 q-count">view</div>
-						<div class="col-sm-8">
+							<%= question.Answers.length %>
+							<br>
+							answers
+						</div>
+						
+						<div class="col-sm-9">
 							<li style="list-style:none;">
 								Subject : <strong><a href="/question/<%= question.id %>"><%= question.subject %></a></strong>
 							</li>
 						</div>
+						
 						<% if(currentUser != null && currentUser.id === question.UserId){ %>
-						<div class="2">
-							<a href="/question/delete/<%= question.id %>" onClick="delete_confirm()"><button type="button" class="btn btn-delete">x</button></a>
-							<a href="/question/edit/<%= question.id %>"><button type="button" class="btn btn-edit">Edit</button></a>
-						</div>
+							<div class="2">
+								<a href="/question/delete/<%= question.id %>" onClick="delete_confirm()"><button type="button" class="btn btn-delete">x</button></a>
+								<a href="/question/edit/<%= question.id %>"><button type="button" class="btn btn-edit">Edit</button></a>
+							</div>
+						<% }else{ %>
+							<div class="2">
+							<br>
+							<br>
+							</div>
 						<% } %>
 					</div>
 				</div>

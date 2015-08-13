@@ -90,18 +90,20 @@ body {
 	border-bottom: 1px solid #eeeeee;
 	padding-top: 30px;
 	padding-bottom: 20px;
+	margin-top: 5px;
 }
 
 .q-count {
 	background-color: #75845C;
 	color: #fff;
 	border-color: #fff;
-	margin: 0px 3px 0px 0px;
+	margin: 1px 10px 25px 25px;
 	min-width: 44px;
 	height: auto;
 	font-size: 11px;
 	text-align: center;
 	padding: 10px;
+	top: -15px;
 }
 
 .btn-delete {

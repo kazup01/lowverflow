@@ -94,16 +94,21 @@ body {
 }
 
 .q-count {
-	background-color: #75845C;
-	color: #fff;
-	border-color: #fff;
+	color: #777;
 	margin: 1px 10px 25px 25px;
 	min-width: 44px;
 	height: auto;
 	font-size: 11px;
 	text-align: center;
 	padding: 10px;
-	top: -15px;
+	top: -20px;
+	border: 2px dotted #75845c;
+}
+
+.mini-count {
+	font-size: 17px;
+	font-weight: 300;
+	color: #777;
 }
 
 .btn-delete {

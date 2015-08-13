@@ -330,7 +330,11 @@ router.get('/tag/index', function(req, res){
 });
 
 router.get('/tag/:id', function(req, res){
-	Tag.findById(req.params.id)
+	Tag.findById(req.params.id, {
+				include: [
+				{ model: Question }
+			]
+		})
 		.then(function(tag){
 			res.render('tag/show', {
 				title: 'Tag show',

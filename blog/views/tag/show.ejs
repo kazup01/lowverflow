@@ -1,7 +1,11 @@
 <% include ../layouts/header %>
 
 <div class="container">
-	<%= Tag.tag %>
+
+	<%= Tag.Questions.map(function(question){
+			return question.subject
+		}).join('　/　') %>
+
 </div>
 
 <% include ../layouts/footer %>

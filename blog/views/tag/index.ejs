@@ -1,33 +1,16 @@
 <% include ../layouts/header %>
 
 <div class="container">
-		<% Tag.forEach(function(Tag){ %>
+		
+    <% Tag.forEach(function(Tag){ %>
 			<a href="/tag/<%= Tag.id %>"><option value=""><%= Tag.tag %></option></a>
 			<hr>
 		<% }) %>
-		<strong><a href="/tag/create">Create To Tag</a></strong>
+		
+    <strong><a href="/tag/create">Create To Tag</a></strong>
 	
 	<h2><a href="/">back</a></h2>
 
 </div>
-
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-  <li><a href="#profile" data-toggle="tab">Profile</a></li>
-  <li><a href="#messages" data-toggle="tab">Messages</a></li>
-  <li><a href="#settings" data-toggle="tab">Settings</a></li>
-</ul>
-<div class="tab-content">
-  <div class="tab-pane active" id="home">Home</div>
-  <div class="tab-pane" id="profile">Profile</div>
-  <div class="tab-pane" id="messages">Message</div>
-  <div class="tab-pane" id="settings">Settings</div>
-</div>
-
-<script>
-  jQuery(function () {
-    $('.tabs a:last').tab('show')
-  })
-</script>
 
 <% include ../layouts/footer %>

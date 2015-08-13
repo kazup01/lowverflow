@@ -373,7 +373,11 @@ router.get('/category/index', function(req, res){
 });
 
 router.get('/category/:id', function(req, res){
-	Category.findById(req.params.id)
+	Category.findById(req.params.id, {
+				include: [
+				{ model: Question }
+			]
+		})
 		.then(function(category){
 			res.render('category/show', {
 				title: 'Category show',

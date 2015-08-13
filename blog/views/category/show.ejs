@@ -1,7 +1,13 @@
 <% include ../layouts/header %>
 
 <div class="container">
-	<%= Category.category %>
+
+	<%= Category.Questions.map(function(question){
+			return question.subject
+		}).join('　/　') %>
+
 </div>
+
+<hr>
 
 <% include ../layouts/footer %>

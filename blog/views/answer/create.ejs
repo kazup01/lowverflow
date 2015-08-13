@@ -1,12 +1,17 @@
 <% include ../layouts/header %>
 
 <div class="container">
+	
 	<form method="POST" action="/question/<%= Question.id %>/answer">
+	
 		<p><label>Answer...</label>
 			<input type="text" name="answer">
 		</p>
+
 		<input type="submit" value="Submit">
+	
 	</form>
+	
 	<h2><a href="/">back</a></h2>
 
 </div>

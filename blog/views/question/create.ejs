@@ -7,16 +7,16 @@
 	<form name="question" method="POST" action="/question/create">
 		
 		<p><label>Question...</label>
-			<input type="text" name="subject">
-			<input type="textarea" name="content">
+			<input type="text" name="subject" required="required">
+			<input type="textarea" name="content" required="required">
 		</p>
 
 		<p><label>Tag...</label>
-			<input type="text" name="tagName">
+			<input type="text" name="tagName" required="required">
 		</p>
 
 		<p><label>Category...</label>
-			<input type="text" name="categoryName">
+			<input type="text" name="categoryName" required="required">
 		</p>
 
 		<input type="submit" value="submit">

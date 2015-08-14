@@ -2,6 +2,8 @@
 
 <div class="container">
 
+<% if(currentUser != null){ %>
+
 	<form name="question" method="POST" action="/question/create">
 		
 		<p><label>Question...</label>
@@ -20,6 +22,12 @@
 		<input type="submit" value="submit">
 
 	</form>
+
+<% }else{ %>
+
+	<a href="/register">こちらより登録後質問を投稿することができます</a>
+
+<% } %>
 
 	<h2><a href="/">back</a></h2>
 

@@ -106,7 +106,7 @@
 	    </div>
 	    
 	    <div id="menu3" class="tab-pane fade">
-			
+		<% if(currentUser != null) { %>
 			<form name="question" method="POST" action="/question/create">
 				<h3>Question</h3>
 
@@ -126,6 +126,14 @@
 				<input type="submit" value="submit">
 
 			</form>
+		
+		<% }else{ %>
+
+			<div class="container">
+				<a href="/register">こちらより登録後質問を投稿することができます</a>
+			</div>
+		
+		<% } %>
 
 		</div>
 	  </div>

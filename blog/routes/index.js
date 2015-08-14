@@ -61,7 +61,6 @@ router.post('/question/create', function(req, res, next){
 					where: {category: req.body.categoryName}
 				})
 				.then(function (category) {
-					console.log(category)
 					if (category == null) {
 						return question.createCategory({category: req.body.categoryName})
 					}
@@ -410,7 +409,6 @@ router.post('/category/create', function(req, res){
 });
 
 /** ----------------------------- */
-
 
 
 

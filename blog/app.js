@@ -37,7 +37,7 @@ app.use(session({
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-//header name
+//currentUserの指定
 app.use(function(req, res, next) {
   models.User.findById(req.session.userId)
     .then(function (user) {

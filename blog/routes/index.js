@@ -41,10 +41,17 @@ router.get('/', function(req, res, next){
 router.get('/question/create', function(req, res, next){
 	Question.findAll()
 		.then(function (question) {
-			res.render('question/create',{
+			if(req.session.userId != null){
+				res.render('question/create',{
 				title: 'Post To Question',
 				Question: question
-			});
+				});
+			}else{
+				res.render('question/not_session', {
+					title: 'Post To Question'
+				})
+			}
+
 		});
 });
 

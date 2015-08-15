@@ -214,12 +214,14 @@ router.post('/register', function(req, res){
 		password: req.body.password
 	})
 		.then(function(user){
-			res.redirect('/users')
-		}).catch(function(err){
-			res.redirect('/register')
+			if(user.comparePassword(req.body.password)){
+				req.session.userId = user.id
+				res.redirect('/');
+			
+				return 
+			}
+			res.redirect('/register');
 		});
-
-
 });
 
 /** ----------------------------- */

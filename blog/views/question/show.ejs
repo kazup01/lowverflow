@@ -3,22 +3,24 @@
 <div class="container">
 
 	<div class="jumbotron">
-	<p><%= Question.User.name %>'s Question...</p>
-	<hr>
-	件名　：　<%= Question.subject %>
-	<br>
-	内容　：　<%= Question.content %>
-	<br>
-	<hr>
-	タ　グ　　：　<%= Question.Tags.map(function(tag){
-					return tag.tag
-				}).join(' / ') %>
 
-	<br>
+		<p><%= Question.User.name %>'s Question...</p>
+		<hr>
+		件名　：　<%= Question.subject %>
+		<br>
+		内容　：　<%= Question.content %>
+		<br>
+		<hr>
+		タ　グ　　：　<%= Question.Tags.map(function(tag){
+						return tag.tag
+					}).join(' / ') %>
 
-	カテゴリ　：　<%= Question.Categories.map(function(category){
-					return category.category
-				}).join(' / ') %>
+		<br>
+
+		カテゴリ　：　<%= Question.Categories.map(function(category){
+						return category.category
+					}).join(' / ') %>
+	
 	</div>
 
 	<br>
@@ -39,7 +41,7 @@
 	<br>
 
 		<%= Question.Answers.map(function (answer) {
-		return answer.answer
+			return answer.answer
 		}).join(' / ') %>
 
 	</div>

@@ -66,8 +66,7 @@ app.get('/test', function(req, res){
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
-  res.render('error/not_found', {title: "お探しのページは存在しません。"});
-  next(err);
+  res.render('error/not_found', {title: "PAGE NOT FOUND"});
 });
 
 // error handlers

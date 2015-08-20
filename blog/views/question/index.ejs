@@ -1,26 +1,37 @@
 <% include ../layouts/header %>
 
 <div class="container-fluid">
-	<div class="row row-contents">
-		<div class="col-sm-1"></div>
+<div class="row row-contents">
+		<div class="col-sm-1">
+			padding
+		</div>
 		
-		<div class="col-sm-10 row-top">
-			<a href="/question/create">質問を投稿する</a>
+		<div class="col-sm-8">
+			<div class="jumbotron">
+				<a href="/question/create">質問を投稿する</a>
+			</div>
 
 		<hr>
 
-			<% Question.forEach(function(Question){ %>
-				<a href="question/<%= Question.id %>"><%= Question.subject %></a>
+			<% Question.forEach(function(question){ %>
+				<h2><a href="question/<%= Question.id %>"><%= question.subject %></a></h2>
+				<font color="#838280"><%= question.content %></font>
+				
 				<br>
-				<%= Question.content %>
-				<br><Br>
+				
+				<font size="1px" color="#838280">投稿日時：<%= question.createdAt %>　　回答数：<%= question.Answers.length %></font>
+				<hr style="border-top: 2px dotted #eeeeee;width: 100%;"> 
 			<% }) %>
 		</div>
 
-		<hr>
+		<div class="col-sm-2">
+			SIDEBAR ZONE
+		</div>
 
-		<div class="col-sm-1"></div>
-	</div>
+		<div class="col-sm-1">
+			padding
+		</div>
+		</div>
 </div>
 
 <% include ../layouts/footer %>

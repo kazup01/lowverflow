@@ -40,7 +40,11 @@ router.get('/', function(req, res, next){
 /** QUESTION */
 
 router.get('/question', function(req, res, next){
-	Question.findAll()
+	Question.findAll({
+			include: {
+			model: Answer
+		}
+	})
 		.then(function(question){
 			res.render('question/index',{
 				title: 'Questions',

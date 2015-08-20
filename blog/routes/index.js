@@ -37,7 +37,19 @@ router.get('/', function(req, res, next){
 
 /** ----------------------------- */
 
-/** CREATE TO QUESTION */
+/** QUESTION */
+
+router.get('/question', function(req, res, next){
+	Question.findAll()
+		.then(function(question){
+			res.render('question/index',{
+				title: 'Questions',
+				Question: question
+			})
+		})
+})
+
+/** CREATE */
 router.get('/question/create', function(req, res, next){
 	Question.findAll()
 		.then(function (question) {
@@ -98,7 +110,7 @@ router.post('/question/create', function(req, res, next){
 		})
 })
 
-/** SHOW PARTS */
+/** SHOW */
 router.get('/question/:id', function(req, res){
 	Question
 		.findById(req.params.id, {
@@ -118,7 +130,7 @@ router.get('/question/:id', function(req, res){
 		})
 })
 
-/** EDIT TO QUESTION */
+/** EDIT */
 router.get('/question/edit/:id', function(req, res){
 	Question.findById(req.params.id)
 		.then(function(question){
@@ -146,7 +158,7 @@ router.post('/question/edit/:id', function(req, res){
 		})
 })
 
-/** DELETE TO QUESTION */
+/** DELETE */
 router.get('/question/delete/:id', function(req, res){
 	Question.findById(req.params.id)
 		.then(function(question){

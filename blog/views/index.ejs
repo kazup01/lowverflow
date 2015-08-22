@@ -110,25 +110,27 @@
 	    
 	    <div id="menu3" class="tab-pane fade">
 		<% if(currentUser != null) { %>
-			<form name="question" method="POST" action="/question/create">
-				<h3>Question</h3>
+			<div class="form">
+				<form name="question" method="POST" action="/question/create">
+					<h3><font color="#fff">Question</font></h3>
 
-				<p><label>Question...</label>
-					<input type="text" name="subject" required="required">
-					<input type="textarea" name="content" required="required">
-				</p>
+					<p>
+						<input class="indexPageQuestion" type="text" name="subject" placeholder="Title" required="required">
+						<input class="questionContent" type="textarea" name="content" placeholder="Content" required="required">
+					</p>
 
-				<p><label>Tag...</label>
-					<input type="text" name="tagName" required="required">
-				</p>
+					<p>
+						<input class="indexPageQuestion" type="text" name="tagName" placeholder="Tag" required="required">
+					</p>
 
-				<p><label>Category...</label>
-					<input type="text" name="categoryName" required="required">
-				</p>
+					<p>
+						<input class="indexPageQuestion" type="text" name="categoryName" placeholder="Category" required="required">
+					</p>
 
-				<input type="submit" value="submit">
+					<input class="questionBtn" type="submit" value="submit">
 
-			</form>
+				</form>
+			</div>
 		
 		<% }else{ %>
 

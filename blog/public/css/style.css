@@ -1,3 +1,12 @@
+.questionZone {
+	background-color:#7DA6D0;
+	padding-left:35px;
+	padding-right:35px;
+	padding-top:35px;
+	padding-bottom:50px;
+}
+
+/** QUESTION FORM */
 .form {
 	background-color:#7DA6D0;
 	padding-left:35px;
@@ -22,11 +31,19 @@
 	background-repeat: no-repeat;
 }
 
+.questionBtn {
+	background: #2C97DE;
+    border: 1px solid #DDD;
+    color: #fff;
+    width: 100px;
+    padding: 10px 0;
+}
+
 input:hover, textarea:hover,
 input:focus, textarea:focus {
 	background-color:white;
 }
-
+/** ------------- */
 
 
 

@@ -1,18 +1,25 @@
 <% include ../layouts/header %>
 
-<div class="container">
+<div class="container-fluid">
+
+
 
 <% if(currentUser != null){ %>
 
-	<div class="form">
 		<form name="question" method="POST" action="/question/create">
-			<h3><font color="#fff">Question</font></h3>
-
+			<h3>Question</h3>
+  	<div class="col-sm-9">
 			<p>
 				<input class="indexPageQuestion" type="text" name="subject" placeholder="Title" required="required">
-				<input class="questionContent" type="textarea" name="content" placeholder="Content" required="required">
 			</p>
 
+			<p>
+				<input class="questionContent" type="textarea" name="content" placeholder="Content" required="required">
+			</p>
+	</div>
+	<div class="col-sm-3">
+			<Br>
+			<br>
 			<p>
 				<input class="indexPageQuestion" type="text" name="tagName" placeholder="Tag" required="required">
 			</p>
@@ -22,6 +29,8 @@
 			</p>
 
 			<input class="questionBtn" type="submit" value="submit">
+
+	</div>
 
 		</form>
 	</div>

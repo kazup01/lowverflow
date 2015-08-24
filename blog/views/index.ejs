@@ -110,13 +110,16 @@
 	    
 	    <div id="menu3" class="tab-pane fade">
 		<% if(currentUser != null) { %>
-			<div class="form">
+			<div class="questionZone">
 				<form name="question" method="POST" action="/question/create">
 					<h3><font color="#fff">Question</font></h3>
 
 					<p>
-						<input class="indexPageQuestion" type="text" name="subject" placeholder="Title" required="required">
-						<input class="questionContent" type="textarea" name="content" placeholder="Content" required="required">
+						<input class="indexPageQuestionTitle" type="text" name="subject" placeholder="Title" required="required">
+					</p>
+
+					<p>
+						<textarea class="questionContent" type="textarea" name="content" placeholder="Content" required="required"></textarea>
 					</p>
 
 					<p>
@@ -128,7 +131,6 @@
 					</p>
 
 					<input class="questionBtn" type="submit" value="submit">
-
 				</form>
 			</div>
 		

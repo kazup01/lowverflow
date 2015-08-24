@@ -25,7 +25,29 @@
 		</div>
 
 		<div class="col-sm-2">
-			SIDEBAR ZONE
+
+			<div class="sidebar-category">
+	        <center><p class="sidebar-text">Category</p></center>
+	        	<div class="sidebar-right">
+				<% Category.forEach(function(category){ %>
+					<a href="category/<%= category.id %>"><%= category.category %></a>
+					<hr>
+				<% }) %>
+				</div>
+			</div>
+
+			<hr>
+			
+			<div class="sidebar-tag">
+	        <center><p class="sidebar-text">Tag</p></center>
+	        	<div class="sidebar-right">
+				<% Tag.forEach(function(tag){ %>
+					<a href="tag/<%= tag.id %>"><%= tag.tag %></a>
+					<hr>
+				<% }) %>
+				</div>
+			</div>
+
 		</div>
 
 		<div class="col-sm-1">

@@ -40,18 +40,28 @@ router.get('/', function(req, res, next){
 /** QUESTION */
 
 router.get('/question', function(req, res, next){
-	Question.findAll({
+	var questions = Question.findAll({
 			include: {
 			model: Answer
 		}
 	})
-		.then(function(question){
-			res.render('question/index',{
-				title: 'Questions',
-				Question: question
-			})
-		})
-})
+	var tags = Tag.findAll();
+	var categories = Category.findAll();
+
+	Promise.all([questions, tags, categories])
+		.then(function (result) {
+			var questions = result[0];
+			var tags = result[1];
+			var categories = result[2];
+
+			res.render('question/index', {
+				Question: questions,
+				Tag: tags,
+				Category: categories,
+				title: 'Question'
+			});
+		});
+});
 
 /** CREATE */
 router.get('/question/create', function(req, res, next){

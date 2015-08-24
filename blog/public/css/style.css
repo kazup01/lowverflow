@@ -1,4 +1,8 @@
 /** QUESTION FORM */
+.questionZone {
+	padding-bottom: 50px;
+}
+
 .form {
 	background-color:#7DA6D0;
 	padding-left:35px;
@@ -36,7 +40,7 @@ input:focus, textarea:focus {
 	background-color:white;
 }
 
-.questionTagCategory {
+.questionTagCategoryZone {
 	padding-top: 90px;
 }
 /** ------------- */

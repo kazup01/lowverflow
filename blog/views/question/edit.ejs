@@ -2,9 +2,10 @@
 <div class="container">
 	<form method="POST" action="/question/edit/<%= Question.id %>">
 		<p><label>Here...</label><br>
-			Subject : <input type="text" name="subject" value="<%= Question.subject %>"><br>
-			Content : <input type="textarea" name="content" value="<%= Question.content %>">
-		</p>
+			<p>Subject</p>
+			<input class="questionTitle" type="text" name="subject" value="<%= Question.subject %>"><br>
+			<p>Content</p>
+			<input class="questionContent" name="content" value="<%= Question.content %>"></textarea>
 		<input type="submit" value="Submit">
 	</form>
 

@@ -14,8 +14,10 @@
 		<hr>
 
 			<% Question.forEach(function(question){ %>
-				<h2><a href="question/<%= Question.id %>"><%= question.subject %></a></h2>
+				<h2><a href="question/<%= question.id %>"><%= question.subject %></a></h2>
+				<div class="seigen">
 				<font color="#838280"><%= question.content %></font>
+				</div>
 				
 				<br>
 				

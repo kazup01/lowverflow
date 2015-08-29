@@ -8,15 +8,12 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var session = require('express-session');
 var FileStore = require('session-file-store')(session);
-
 var routes = require('./routes/index');
-
 var models = require('./models')
-
 var app = express();
 /* ----- ----- **/
 
- 
+
 /** ----- view engine setup ----- */
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

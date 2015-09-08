@@ -32,9 +32,6 @@ router.get('/', function(req, res, next){
 			});
 		});
 });
-
-
-
 /** ----------------------------- */
 
 /** QUESTION */
@@ -226,12 +223,16 @@ router.post('/question/:id/answer', function (req, res) {
 router.get('/register', function(req, res){
 	User.findAll()
 		.then(function(user){
-			res.render('auth/register', {
-				title: 'Register Form',
-				User: user
-			})
-		})
-})
+			if(req.session.userId == null){
+				res.render('auth/register', {
+					title: 'Register Form',
+					User: user
+				});
+			}else{
+				res.redirect('/');
+			}
+		});
+});
 
 router.post('/register', function(req, res){
 	User.create({
@@ -241,10 +242,10 @@ router.post('/register', function(req, res){
 	})
 		.then(function(user){
 			if(user.comparePassword(req.body.password)){
-				req.session.userId = user.id
+				req.session.userId = user.id;
 				res.redirect('/');
 			
-				return 
+				return;
 			}
 			res.redirect('/register');
 		});

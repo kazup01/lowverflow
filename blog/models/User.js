@@ -27,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     }
   },
-  { 
+  {
     instanceMethods: {
       comparePassword: function (password) {
         if (password == null) return false

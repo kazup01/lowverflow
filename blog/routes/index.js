@@ -262,7 +262,7 @@ router.get('/login', function (req, res) {
 	} else {
 		res.redirect('/')
 	}
-})
+});
 
 router.post('/login', function (req, res) {
 	User
@@ -272,10 +272,9 @@ router.post('/login', function (req, res) {
 			}
 		}).then(function (user) {
 			if(user.comparePassword(req.body.password)){
-				req.session.userId = user.id
-				res.redirect('/')
-			
-				return
+				req.session.userId = user.id;
+				res.redirect('/');
+				return;
 			}
 			res.redirect('/login');
 		});
